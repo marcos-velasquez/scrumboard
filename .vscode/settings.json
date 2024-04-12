@@ -1,3 +1,9 @@
 {
-  "cSpell.words": ["matx", "scrumboard", "tailwindcss"]
+  "cSpell.words": ["matx", "scrumboard", "tailwindcss"],
+  "angular-schematics.schematicsDefaultOptions": {
+    "angular-*": {
+      "style": "scss",
+      "externalTemplate": true
+    }
+  }
 }

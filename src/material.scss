@@ -23,12 +23,12 @@ $dark-theme: matx.define-theme(
 
 @include mat.core();
 
-html {
+body {
   @include mat.all-component-themes($light-theme);
   background-color: #f1f5f9d9;
 }
 
-html.dark-theme {
+body.dark-theme {
   @include mat.all-component-colors($dark-theme);
   background-color: #191c1c;
 }
