@@ -1,0 +1,34 @@
+@use '@angular/material' as mat;
+@use '@angular/material-experimental' as matx;
+
+$light-theme: matx.define-theme(
+  (
+    color: (
+      theme-type: light,
+      primary: matx.$m3-rose-palette,
+      tertiary: matx.$m3-red-palette,
+    ),
+  )
+);
+
+$dark-theme: matx.define-theme(
+  (
+    color: (
+      theme-type: dark,
+      primary: matx.$m3-cyan-palette,
+      tertiary: matx.$m3-orange-palette,
+    ),
+  )
+);
+
+@include mat.core();
+
+html {
+  @include mat.all-component-themes($light-theme);
+  background-color: #f1f5f9d9;
+}
+
+html.dark-theme {
+  @include mat.all-component-colors($dark-theme);
+  background-color: #191c1c;
+}
