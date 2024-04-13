@@ -38,6 +38,9 @@
       ],
       "@spartan-ng/ui-separator-helm": [
         "libs/ui/ui-separator-helm/src/index.ts"
+      ],
+      "@spartan-ng/ui-typography-helm": [
+        "libs/ui/ui-typography-helm/src/index.ts"
       ]
     }
   },
