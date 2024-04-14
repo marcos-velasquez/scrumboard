@@ -4,8 +4,8 @@ import { RouterModule } from '@angular/router';
 import { HlmButtonDirective } from '@spartan-ng/ui-button-helm';
 import { HlmIconModule } from '@spartan-ng/ui-icon-helm';
 import { HlmH1Directive } from '@spartan-ng/ui-typography-helm';
-import { BoardItemComponent } from '../../components/board-item/board-item.component';
-import { Board } from '../../data/domain/board.model';
+import { BoardItemComponent } from './components/board-item/board-item.component';
+import { Board } from '../domain/board.model';
 
 @Component({
   selector: 'app-board-list',

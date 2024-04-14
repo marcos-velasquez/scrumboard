@@ -1,7 +1,7 @@
 import { Component, input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HlmPDirective } from '@spartan-ng/ui-typography-helm';
-import { Board } from '../../data/domain/board.model';
+import { Board } from '../../../domain/board.model';
 
 @Component({
   selector: 'app-member-list',
