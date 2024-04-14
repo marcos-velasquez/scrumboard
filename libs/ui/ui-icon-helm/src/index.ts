@@ -1,13 +1,13 @@
 import { NgModule } from '@angular/core';
-import { provideIcons as provideIconsImport } from '@ng-icons/core';
+import { provideIcons } from '@ng-icons/core';
+import { lucideHome, lucidePlus } from '@ng-icons/lucide';
 import { HlmIconComponent } from './lib/hlm-icon.component';
 
 export * from './lib/hlm-icon.component';
 
-export const provideIcons = provideIconsImport;
-
 @NgModule({
-	imports: [HlmIconComponent],
-	exports: [HlmIconComponent],
+  providers: [provideIcons({ lucidePlus, lucideHome })],
+  imports: [HlmIconComponent],
+  exports: [HlmIconComponent],
 })
 export class HlmIconModule {}

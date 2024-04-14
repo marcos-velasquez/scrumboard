@@ -7,11 +7,7 @@
 /* You can add global styles to this file, and also import other style files */
 
 :root {
-  --font-sans: '';
-}
-
-:root {
-  --background: 0 0% 100%;
+  --background: 210 40% 97.5%;
   --foreground: 240 10% 3.9%;
   --card: 0 0% 100%;
   --card-foreground: 240 10% 3.9%;
@@ -53,4 +49,14 @@
   --border: 240 3.7% 15.9%;
   --input: 240 3.7% 15.9%;
   --ring: 346.8 77.2% 49.8%;
+}
+
+@layer base {
+  .section__header {
+    @apply bg-primary text-primary-foreground sticky top-0 w-full z-30 flex pb-4 px-4 md:px-8 pt-24 flex-col sm:flex-row items-start sm:items-center sm:justify-between shadow-md;
+  }
+
+  .section__body {
+    @apply pt-4 px-4 sm:px-8;
+  }
 }

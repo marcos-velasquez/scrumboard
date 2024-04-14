@@ -1,0 +1,13 @@
+<div class="flex items-center -space-x-1.5">
+  @for(member of board().members.slice(0, MAX_VISIBLE_MEMBERS); track member){
+  <img
+    class="flex-0 w-8 h-8 rounded-full ring ring-offset-1 ring-secondary ring-offset-transparent object-cover"
+    [src]="member.avatar"
+    alt="Member avatar"
+  />
+  } @if(board().members.length > MAX_VISIBLE_MEMBERS){
+  <div class="flex flex-0 items-center justify-center w-8 h-8 rounded-full bg-secondary text-secondary-foreground">
+    <p hlmP>+{{ board().members.slice(MAX_VISIBLE_MEMBERS).length }}</p>
+  </div>
+  }
+</div>

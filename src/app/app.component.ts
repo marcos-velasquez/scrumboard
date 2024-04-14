@@ -4,8 +4,7 @@ import { RouterModule } from '@angular/router';
   standalone: true,
   imports: [RouterModule],
   selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrl: './app.component.scss',
+  template: '<router-outlet></router-outlet>',
 })
 export class AppComponent {
   title = 'scrumboard';

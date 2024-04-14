@@ -2,23 +2,26 @@ import { CommonModule } from '@angular/common';
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { HlmButtonDirective } from '@spartan-ng/ui-button-helm';
+import { HlmIconModule } from '@spartan-ng/ui-icon-helm';
+import { HlmH1Directive } from '@spartan-ng/ui-typography-helm';
+import { BoardItemComponent } from '../../components/board-item/board-item.component';
+import { Board } from '../../data/domain/board.model';
 
 @Component({
   selector: 'app-board-list',
   standalone: true,
-  imports: [CommonModule, RouterModule, HlmButtonDirective],
+  imports: [CommonModule, RouterModule, HlmButtonDirective, HlmH1Directive, HlmIconModule, BoardItemComponent],
   templateUrl: './board-list.component.html',
-  styleUrl: './board-list.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class BoardListComponent {
-  public readonly boards: any[] = [
-    {
-      id: '1',
-      title: 'Board 1',
-      description: 'Description 1',
-      icon: 'dashboard',
-      members: [
+  public readonly boards: Board[] = [
+    new Board(
+      '1',
+      'Personal Board',
+      'This is a personal board',
+      'dashboard',
+      [
         {
           name: 'John Doe',
           avatar: 'https://i.pravatar.cc/300',
@@ -36,7 +39,7 @@ export class BoardListComponent {
           avatar: 'https://i.pravatar.cc/300',
         },
       ],
-      lastActivity: '2020-01-01',
-    },
+      '2024-04-07'
+    ),
   ];
 }
