@@ -1,5 +1,16 @@
 {
-  "cSpell.words": ["bluegrey", "clsx", "devkit", "esnext", "lucide", "matx", "scrumboard", "tailwindcss", "usecase"],
+  "cSpell.words": [
+    "alertdialog",
+    "bluegrey",
+    "clsx",
+    "devkit",
+    "esnext",
+    "lucide",
+    "matx",
+    "scrumboard",
+    "tailwindcss",
+    "usecase"
+  ],
   "angular-schematics.schematicsDefaultOptions": {
     "angular-*": {
       "style": "scss",
