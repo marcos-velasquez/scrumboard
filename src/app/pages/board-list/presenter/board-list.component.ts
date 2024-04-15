@@ -16,30 +16,15 @@ import { Board } from '../domain/board.model';
 })
 export class BoardListComponent {
   public readonly boards: Board[] = [
-    new Board(
-      '1',
-      'Personal Board',
-      'This is a personal board',
-      'dashboard',
-      [
-        {
-          name: 'John Doe',
-          avatar: 'https://i.pravatar.cc/300',
-        },
-        {
-          name: 'Jane Doe',
-          avatar: 'https://i.pravatar.cc/300',
-        },
-        {
-          name: 'John Doe',
-          avatar: 'https://i.pravatar.cc/300',
-        },
-        {
-          name: 'John Doe',
-          avatar: 'https://i.pravatar.cc/300',
-        },
-      ],
-      '2024-04-07'
-    ),
+    Board.create('Personal Board', 'This is a personal board ', 'lucideHome', [
+      {
+        name: 'John Doe',
+        avatar: 'https://i.pravatar.cc/300',
+      },
+      {
+        name: 'Jane Doe',
+        avatar: 'https://i.pravatar.cc/300',
+      },
+    ]),
   ];
 }

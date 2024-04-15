@@ -3,12 +3,12 @@
   class="flex flex-col items-start w-56 p-6 rounded-lg shadow bg-card hover:shadow-xl transition-shadow duration-150 ease-in-out"
 >
   <div class="h-10 w-10 rounded-full bg-primary flex items-center justify-center">
-    <hlm-icon class="text-primary-foreground" size="base" name="lucideHome" />
+    <hlm-icon class="text-primary-foreground" size="base" [name]="board().icon.value" />
   </div>
 
   <div>
-    <h2 hlmH3 class="mt-5">{{ board().title }}</h2>
-    <p hlmMuted class="mt-0.5">{{ board().description }}</p>
+    <h2 hlmH3 class="mt-5 line-clamp-2">{{ board().title }}</h2>
+    <p hlmMuted class="mt-0.5 line-clamp-2">{{ board().description }}</p>
   </div>
 
   <div hlmSeparator class="my-4 w-20"></div>
