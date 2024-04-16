@@ -9,15 +9,14 @@ describe('SaveBoardUseCase', () => {
   });
 
   it('should save board', async () => {
-    const input = { title: 'title', description: 'description', icon: 'lucideHome', members: [] };
+    const input = { title: 'title', description: 'description', icon: 'lucideHome' };
     await saveBoardUsecase.execute(input);
-    const board = Board.create(input.title, input.description, input.icon, input.members);
+    const board = Board.create(input.title, input.description, input.icon);
     expect(repository.save).toHaveBeenCalledWith(
       expect.objectContaining({
         title: board.title,
         description: board.description,
         icon: board.icon,
-        members: board.members,
       })
     );
   });

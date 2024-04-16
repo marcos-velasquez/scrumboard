@@ -1,1 +1,45 @@
-<p>board-creator works!</p>
+<brn-popover (closed)="form.reset()" sideOffset="5" closeDelay="100">
+  <button brnPopoverTrigger variant="secondary" hlmBtn>
+    <hlm-icon class="mr-1" size="sm" name="lucidePlus" />New Board
+  </button>
+  <div hlmPopoverContent class="w-80 grid gap-3" *brnPopoverContent="let ctx">
+    <div class="space-y-1">
+      <h4 class="font-medium leading-none">Create a new board</h4>
+      <p class="text-sm text-muted-foreground">Create a new board for your team or project.</p>
+    </div>
+    <form [formGroup]="form">
+      <div class="grid gap-2">
+        <div class="grid grid-cols-3 items-center gap-3">
+          <label hlmLabel for="title">Title</label>
+          <input formControlName="title" hlmInput id="title" class="col-span-2" />
+        </div>
+
+        <div class="grid grid-cols-3 items-center gap-3">
+          <label hlmLabel for="description">Description</label>
+          <input formControlName="description" hlmInput id="description" class="col-span-2" />
+        </div>
+
+        <div class="grid grid-cols-3 items-center gap-3">
+          <label hlmLabel>Icon</label>
+          <hlm-select formControlName="icon" class="inline-block col-span-2">
+            <hlm-select-trigger>
+              <hlm-icon [name]="form.get('icon')!.value!" class="mx-auto"></hlm-icon>
+            </hlm-select-trigger>
+            <hlm-select-content class="max-h-52">
+              @for(icon of icons; track icon){
+              <hlm-option [value]="icon" class="justify-center px-0">
+                <hlm-icon [name]="icon"></hlm-icon>
+              </hlm-option>
+              }
+            </hlm-select-content>
+          </hlm-select>
+        </div>
+
+        <footer class="mt-6 flex gap-2">
+          <button (click)="ctx.close()" hlmBtn variant="secondary" class="w-full">Cancel</button>
+          <button (click)="save(); ctx.close()" hlmBtn class="w-full" [disabled]="form.invalid">Accept</button>
+        </footer>
+      </div>
+    </form>
+  </div>
+</brn-popover>

@@ -6,7 +6,7 @@ export class SaveBoardUseCase {
   constructor(private readonly boardRepository: BoardRepository) {}
 
   public async execute(boardInput: SaveBoardInput): Promise<void> {
-    const board = Board.create(boardInput.title, boardInput.description, boardInput.icon, boardInput.members);
+    const board = Board.create(boardInput.title, boardInput.description, boardInput.icon);
     this.boardRepository.save(board);
   }
 }

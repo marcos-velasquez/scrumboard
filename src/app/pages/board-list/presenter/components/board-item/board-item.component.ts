@@ -5,7 +5,6 @@ import { HlmIconModule } from '@spartan-ng/ui-icon-helm';
 import { HlmH3Directive, HlmMutedDirective, HlmPDirective } from '@spartan-ng/ui-typography-helm';
 import { HlmSeparatorDirective } from '@spartan-ng/ui-separator-helm';
 import { TimeAgoPipe } from '../../../../../shared/pipes';
-import { MemberListComponent } from '../member-list/member-list.component';
 import { Board } from '../../../domain/board.model';
 
 @Component({
@@ -20,7 +19,6 @@ import { Board } from '../../../domain/board.model';
     HlmMutedDirective,
     HlmSeparatorDirective,
     HlmPDirective,
-    MemberListComponent,
   ],
   templateUrl: './board-item.component.html',
 })

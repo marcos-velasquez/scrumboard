@@ -1,23 +1,7 @@
+import { availableIcons } from 'libs/ui/ui-icon-helm/src/icons';
+
 export class BoardIcon {
-  public static readonly ICONS = [
-    'lucideHome',
-    'lucideUser',
-    'lucideUsers',
-    'lucideGrid',
-    'lucideList',
-    'lucideCalendar',
-    'lucideClock',
-    'lucideSun',
-    'lucideMoon',
-    'lucideCloud',
-    'lucideCloudSun',
-    'lucideCloudMoon',
-    'lucideCloudRain',
-    'lucideCloudSnow',
-    'lucideCloudFog',
-    'lucideCloudStorm',
-    'lucideCloudOff',
-  ];
+  public static readonly ICONS = availableIcons;
 
   public static create(icon: string) {
     if (this.ICONS.includes(icon)) return new BoardIcon(icon);

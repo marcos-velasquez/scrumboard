@@ -13,11 +13,7 @@
 
   <div hlmSeparator class="my-4 w-20"></div>
 
-  @if(board().hasMembers()){
-  <app-member-list [board]="board()"></app-member-list>
-  }
-
-  <div class="flex items-center gap-1 mt-4">
+  <div class="flex items-center gap-1">
     <p hlmP>Edited:</p>
     <small hlmMuted>{{ board().lastActivity | timeAgo }}</small>
   </div>
