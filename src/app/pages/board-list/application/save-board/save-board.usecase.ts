@@ -1,8 +1,9 @@
-import { Board } from '../../domain/board.model';
+import { UseCase } from '../../../../core/application/base.usecase';
 import { BoardRepository } from '../../domain/board.repository';
+import { Board } from '../../domain/board.model';
 import { SaveBoardInput } from './save-board.input';
 
-export class SaveBoardUseCase {
+export class SaveBoardUseCase implements UseCase<SaveBoardInput, void> {
   constructor(private readonly boardRepository: BoardRepository) {}
 
   public async execute(boardInput: SaveBoardInput): Promise<void> {
