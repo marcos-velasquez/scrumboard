@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
 import { provideIcons } from '@ng-icons/core';
 import { HlmIconComponent } from './lib/hlm-icon.component';
-import { icons } from './icons';
+import { icons, availableIcons } from './icons';
 
 export * from './lib/hlm-icon.component';
 
-export { provideIcons };
+export { provideIcons, availableIcons };
 
 @NgModule({
   providers: [provideIcons(icons)],

@@ -1,0 +1,17 @@
+<header class="section__header">
+  <div>
+    <h1 hlmH1>Scrumboard Boards</h1>
+    <h2 class="font-semibold">{{ store.scrumBoards().length }} Boards</h2>
+  </div>
+  <div class="flex items-center gap-2 mt-4 sm:mt-0">
+    <app-scrumboard-creator></app-scrumboard-creator>
+  </div>
+</header>
+
+<section class="section__body">
+  <div class="flex flex-wrap gap-4">
+    @for(scrumBoard of store.scrumBoards(); track scrumBoard.id){
+    <app-scrumboard [scrumBoard]="scrumBoard" class="shrink-0"></app-scrumboard>
+    }
+  </div>
+</section>

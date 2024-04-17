@@ -2,8 +2,8 @@ import { Route } from '@angular/router';
 
 export const appRoutes: Route[] = [
   {
-    path: 'scrumboard',
-    loadComponent: () => import('./pages/board-list/presenter/board-list.component').then((c) => c.BoardListComponent),
+    path: 'scrumboards',
+    loadComponent: () => import('./pages/scrumboard/presenter/scrumboard-list.component').then((c) => c.ScrumBoardListComponent),
   },
-  { path: '**', redirectTo: 'scrumboard' },
+  { path: '**', redirectTo: 'scrumboards' },
 ];
