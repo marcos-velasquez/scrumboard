@@ -1,9 +1,23 @@
 <a
   [routerLink]="[board().id]"
-  class="flex flex-col items-start w-56 p-6 rounded-lg shadow bg-card hover:shadow-xl transition-shadow duration-150 ease-in-out"
+  class="relative flex flex-col items-start w-56 p-6 rounded-lg shadow bg-card hover:shadow-xl transition-shadow duration-150 ease-in-out"
 >
   <div class="h-10 w-10 rounded-full bg-primary flex items-center justify-center">
     <hlm-icon class="text-primary-foreground" size="base" [name]="board().icon.value" />
+  </div>
+
+  <div class="absolute top-2 right-2">
+    <app-confirm-dialog
+      (confirm)="remove()"
+      [config]="{
+        description: 'This action cannot be undone. This will permanently delete your board.',
+        icon: 'lucideTrash',
+        iconClass: 'text-destructive',
+        variant: 'ghost',
+        size: 'icon'
+      }"
+    >
+    </app-confirm-dialog>
   </div>
 
   <div>

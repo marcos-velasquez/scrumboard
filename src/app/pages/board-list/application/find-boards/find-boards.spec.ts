@@ -5,6 +5,7 @@ describe('FindBoardsUseCase', () => {
   let findBoardsUsecase: FindBoardsUseCase;
   const repository = {
     save: jest.fn(),
+    remove: jest.fn(),
     getAll: jest.fn(() => Promise.resolve([Board.create('title', 'description', 'lucideHome')])),
   };
 

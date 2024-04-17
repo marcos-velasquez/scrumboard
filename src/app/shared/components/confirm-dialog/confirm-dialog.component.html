@@ -1,0 +1,23 @@
+<hlm-alert-dialog>
+  <button brnAlertDialogTrigger hlmBtn [variant]="config().variant" [size]="config().size">
+    @if (config().icon) {
+    <hlm-icon [name]="config().icon!" [class]="config().iconClass"></hlm-icon>
+    } @if(config().triggerText){
+    <span>{{ config().triggerText }}</span>
+    }
+  </button>
+  <hlm-alert-dialog-content *brnAlertDialogContent="let ctx">
+    <hlm-alert-dialog-header>
+      <h3 hlmAlertDialogTitle>Are you absolutely sure?</h3>
+      <p hlmAlertDialogDescription>
+        @if( config().description){
+        {{ config().description }}
+        }
+      </p>
+    </hlm-alert-dialog-header>
+    <hlm-alert-dialog-footer>
+      <button hlmAlertDialogCancel (click)="ctx.close()">Cancel</button>
+      <button hlmAlertDialogAction (click)="confirm.emit(); ctx.close()">Confirm</button>
+    </hlm-alert-dialog-footer>
+  </hlm-alert-dialog-content>
+</hlm-alert-dialog>

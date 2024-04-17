@@ -15,18 +15,18 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
+      "@spartan-ng/ui-alertdialog-helm": ["libs/ui/ui-alertdialog-helm/src/index.ts"],
       "@spartan-ng/ui-button-helm": ["libs/ui/ui-button-helm/src/index.ts"],
       "@spartan-ng/ui-card-helm": ["libs/ui/ui-card-helm/src/index.ts"],
       "@spartan-ng/ui-dialog-helm": ["libs/ui/ui-dialog-helm/src/index.ts"],
       "@spartan-ng/ui-icon-helm": ["libs/ui/ui-icon-helm/src/index.ts"],
+      "@spartan-ng/ui-input-helm": ["libs/ui/ui-input-helm/src/index.ts"],
       "@spartan-ng/ui-label-helm": ["libs/ui/ui-label-helm/src/index.ts"],
       "@spartan-ng/ui-menu-helm": ["libs/ui/ui-menu-helm/src/index.ts"],
-      "@spartan-ng/ui-separator-helm": ["libs/ui/ui-separator-helm/src/index.ts"],
-      "@spartan-ng/ui-typography-helm": ["libs/ui/ui-typography-helm/src/index.ts"],
-      "@spartan-ng/ui-alertdialog-helm": ["libs/ui/ui-alertdialog-helm/src/index.ts"],
-      "@spartan-ng/ui-input-helm": ["libs/ui/ui-input-helm/src/index.ts"],
       "@spartan-ng/ui-popover-helm": ["libs/ui/ui-popover-helm/src/index.ts"],
-      "@spartan-ng/ui-select-helm": ["libs/ui/ui-select-helm/src/index.ts"]
+      "@spartan-ng/ui-select-helm": ["libs/ui/ui-select-helm/src/index.ts"],
+      "@spartan-ng/ui-separator-helm": ["libs/ui/ui-separator-helm/src/index.ts"],
+      "@spartan-ng/ui-typography-helm": ["libs/ui/ui-typography-helm/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

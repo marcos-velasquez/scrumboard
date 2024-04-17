@@ -2,7 +2,11 @@ import { Board } from '../../domain/board.model';
 import { SaveBoardUseCase } from './save-board.usecase';
 describe('SaveBoardUseCase', () => {
   let saveBoardUsecase: SaveBoardUseCase;
-  const repository = { save: jest.fn(), getAll: jest.fn() };
+  const repository = {
+    save: jest.fn(),
+    remove: jest.fn(),
+    getAll: jest.fn(),
+  };
 
   beforeEach(() => {
     saveBoardUsecase = new SaveBoardUseCase(repository);
