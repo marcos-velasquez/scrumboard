@@ -1,1 +1,31 @@
-<p>board-creator works!</p>
+<div class="w-72" [class.h-14]="!formVisible()">
+  <div class="relative flex w-full h-full overflow-hidden rounded-xl bg-secondary text-secondary-foreground">
+    <button
+      hlmBtn
+      (click)="toggleFormVisibility()"
+      variant="secondary"
+      class="h-full w-full absolute inset-0 z-30 justify-start px-3 rounded-xl bg-transparent"
+      [ngClass]="{ 'opacity-0 pointer-events-none': formVisible() }"
+    >
+      <hlm-icon name="lucidePlusCircle" size="sm" class="mr-2"></hlm-icon>
+      Create list
+    </button>
+    <form class="flex flex-col items-start w-full p-3" [ngClass]="{ 'opacity-0': !formVisible() }" [formGroup]="form">
+      <input
+        hlmInput
+        class="w-full py-2 px-3 leading-5 rounded-md shadow-sm border border-gray-300 bg-white focus:border-primary dark:border-gray-500 dark:focus:border-primary dark:bg-black dark:bg-opacity-5"
+        [autocomplete]="'off'"
+        [formControlName]="'title'"
+        [placeholder]="'Enter list title...'"
+        (keydown.enter)="save()"
+        #titleInput
+      />
+      <div class="w-full flex items-center justify-between mt-3">
+        <button hlmBtn (click)="save()" class="h-8">Add list</button>
+        <button hlmBtn (click)="toggleFormVisibility()" size="icon" variant="outline" class="h-8 w-8">
+          <hlm-icon name="lucideX" size="sm"></hlm-icon>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

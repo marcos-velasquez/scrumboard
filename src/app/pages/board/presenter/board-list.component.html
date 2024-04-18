@@ -13,7 +13,7 @@
 <div class="flex-auto p-6 sm:p-8 sm:pt-4 overflow-y-auto" cdkScrollable>
   <div class="flex">
     <div class="flex items-start gap-3">
-      @for(board of boards; track board.id){
+      @for(board of store.boards(); track board.id){
       <div class="flex-0 w-72 p-2 rounded-2xl bg-secondary text-secondary-foreground">
         <div class="flex items-center justify-between" cdkDragHandle>
           <div
@@ -74,13 +74,13 @@
           >
             <!-- Card -->
 
-            <ng-container *ngFor="let card of board.cards; track: card">
-              <a class="flex flex-col items-start mb-3 p-5 space-y-3 shadow rounded-lg overflow-hidden bg-card" cdkDrag>
-                <!-- Title -->
-                <div class="text-lg font-medium leading-5">aaa</div>
+            @for(card of board.cards; track card){
+            <a class="flex flex-col items-start mb-3 p-5 space-y-3 shadow rounded-lg overflow-hidden bg-card" cdkDrag>
+              <!-- Title -->
+              <div class="text-lg font-medium leading-5">aaa</div>
 
-                <!-- Labels -->
-                <!--     <ng-container *ngIf="card.labels.length">
+              <!-- Labels -->
+              <!--     <ng-container *ngIf="card.labels.length">
                   <div>
                     <div class="flex flex-wrap -mx-1 -mb-2">
                       <ng-container *ngFor="let label of card.labels; trackBy: trackByFn">
@@ -93,8 +93,8 @@
                     </div>
                   </div>
                 </ng-container> -->
-                <!-- Due date -->
-                <!--  <ng-container *ngIf="card.dueDate">
+              <!-- Due date -->
+              <!--  <ng-container *ngIf="card.dueDate">
                   <div
                     class="flex items-center rounded text-sm font-medium leading-5 text-secondary"
                     [ngClass]="{ 'text-red-600': isOverdue(card.dueDate) }"
@@ -105,8 +105,8 @@
                     </div>
                   </div>
                 </ng-container> -->
-              </a>
-            </ng-container>
+            </a>
+            }
           </div>
 
           <!-- New card -->
@@ -117,6 +117,8 @@
         </div>
       </div>
       }
+
+      <app-board-creator [scrumBoardId]="scrumBoardId"></app-board-creator>
     </div>
   </div>
 </div>
