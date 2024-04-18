@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import {
@@ -15,7 +15,7 @@ import { HlmIconComponent } from '@spartan-ng/ui-icon-helm';
 import { BrnSelectModule } from '@spartan-ng/ui-select-brain';
 import { HlmSelectModule } from '@spartan-ng/ui-select-helm';
 import { ScrumBoardIcon } from '../../../domain/scrumboard-icon.model';
-import { saveScrumBoardUseCase,  SaveScrumBoardInput } from '../../../application';
+import { saveScrumBoardUseCase, SaveScrumBoardInput } from '../../../application';
 
 @Component({
   selector: 'app-scrumboard-creator',
@@ -37,6 +37,7 @@ import { saveScrumBoardUseCase,  SaveScrumBoardInput } from '../../../applicatio
     HlmSelectModule,
   ],
   templateUrl: './scrumboard-creator.component.html',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ScrumBoardCreatorComponent {
   public readonly icons = ScrumBoardIcon.ICONS;

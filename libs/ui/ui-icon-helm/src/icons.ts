@@ -34,6 +34,7 @@ import {
   lucideTrash2,
   lucideMove,
   lucideCopy,
+  lucideArrowLeft,
 } from '@ng-icons/lucide';
 
 export const icons = {
@@ -72,6 +73,7 @@ export const icons = {
   lucideTrash2,
   lucideMove,
   lucideCopy,
+  lucideArrowLeft,
 };
 
 export const availableIcons = [
@@ -110,4 +112,5 @@ export const availableIcons = [
   'lucideTrash2',
   'lucideMove',
   'lucideCopy',
+  'lucideArrowLeft',
 ];

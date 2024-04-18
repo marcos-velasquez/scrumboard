@@ -1,4 +1,4 @@
-import { Component, input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { HlmIconModule } from '@spartan-ng/ui-icon-helm';
@@ -26,6 +26,7 @@ import { removeScrumBoardUseCase } from '../../../application';
     ConfirmDialogComponent,
   ],
   templateUrl: './scrumboard.component.html',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ScrumBoardComponent {
   public readonly scrumBoard = input.required<ScrumBoard>();

@@ -3,7 +3,7 @@ import { ChangeDetectionStrategy, Component, OnInit, inject } from '@angular/cor
 import { RouterModule } from '@angular/router';
 import { HlmH1Directive } from '@spartan-ng/ui-typography-helm';
 import { bus } from '../../../core/domain/event-bus.model';
-import { ScrumBoardCreatorComponent } from './modules/scrumboard-creator/scrumboard-creator.component';
+import { ScrumBoardCreatorComponent } from './components/scrumboard-creator/scrumboard-creator.component';
 import { ScrumBoardComponent } from './components/scrumboard/scrumboard.component';
 import { ScrumBoardStore } from '../infrastructure/store/scrumboard.store';
 import { ScrumBoardSavedEvent, ScrumBoardRemovedEvent } from '../domain/scrumboard.event';
