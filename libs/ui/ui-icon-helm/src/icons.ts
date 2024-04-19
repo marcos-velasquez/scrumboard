@@ -37,6 +37,8 @@ import {
   lucideArrowLeft,
   lucideX,
   lucidePlusCircle,
+  lucideMenu,
+  lucideMenuSquare,
 } from '@ng-icons/lucide';
 
 export const icons = {
@@ -78,6 +80,8 @@ export const icons = {
   lucideArrowLeft,
   lucideX,
   lucidePlusCircle,
+  lucideMenu,
+  lucideMenuSquare,
 };
 
 export const availableIcons = [
@@ -119,4 +123,6 @@ export const availableIcons = [
   'lucideArrowLeft',
   'lucideX',
   'lucidePlusCircle',
+  'lucideMenu',
+  'lucideMenuSquare',
 ];

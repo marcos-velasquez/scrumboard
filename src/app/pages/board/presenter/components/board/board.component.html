@@ -1,1 +1,43 @@
-<p>board works!</p>
+<div class="h-full flex-0 w-72 p-2 rounded-2xl bg-secondary text-secondary-foreground">
+  <div class="flex items-center justify-between">
+    <div
+      class="flex items-center w-full py-2 px-3 rounded-md cursor-text border border-transparent focus-within:shadow-sm focus-within:border-primary"
+    >
+      <input
+        #listTitleInput
+        [value]="board().title"
+        [spellcheck]="'false'"
+        (focusout)="renameListTitle(listTitleInput.value)"
+        (keydown.enter)="listTitleInput.blur()"
+        class="w-full font-medium leading-5 bg-transparent outline-none"
+      />
+    </div>
+    <div
+      class="flex items-center justify-center min-w-6 ml-4 text-sm font-semibold leading-6 rounded-full bg-primary text-primary-foreground"
+    >
+      {{ board().tasksCount }}
+    </div>
+
+    <div class="flex items-center justify-center">
+      <button hlmBtn size="icon" variant="ghost" [brnMenuTriggerFor]="menu" class="h-7 w-7">
+        <hlm-icon name="lucideMenu" size="sm"></hlm-icon>
+      </button>
+    </div>
+    <ng-template #menu>
+      <hlm-menu>
+        <button hlmMenuItem (click)="listTitleInput.focus()">
+          <hlm-icon name="lucideEdit" hlmMenuIcon />
+          Rename list
+        </button>
+        <button hlmMenuItem (click)="remove()">
+          <hlm-icon name="lucideTrash" hlmMenuIcon />
+          Delete list
+        </button>
+      </hlm-menu>
+    </ng-template>
+  </div>
+
+  <div class="mt-2 rounded-xl bg-gray-400 bg-opacity-12 dark:bg-transparent dark:border">
+    <app-task-list [board]="board()"></app-task-list>
+  </div>
+</div>

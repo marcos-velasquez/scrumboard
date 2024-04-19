@@ -1,14 +1,14 @@
 import { ChangeDetectionStrategy, Component, Input, OnInit, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
-import { DragDropModule } from '@angular/cdk/drag-drop';
-import { ScrollingModule } from '@angular/cdk/scrolling';
 import { HlmH1Directive } from '@spartan-ng/ui-typography-helm';
 import { HlmButtonModule } from '@spartan-ng/ui-button-helm';
 import { HlmIconModule } from '@spartan-ng/ui-icon-helm';
 import { BoardCreatorComponent } from './components/board-creator/board-creator.component';
+import { BoardComponent } from './components/board/board.component';
 import { findBoardsByScrumBoardUseCase } from '../application';
 import { BoardStore, BoardStoreEvent } from '../infrastructure/store';
+import { Board } from '../domain/board.model';
 
 @Component({
   selector: 'app-board-list',
@@ -16,11 +16,10 @@ import { BoardStore, BoardStoreEvent } from '../infrastructure/store';
   imports: [
     CommonModule,
     RouterModule,
-    DragDropModule,
-    ScrollingModule,
     HlmH1Directive,
     HlmButtonModule,
     HlmIconModule,
+    BoardComponent,
     BoardCreatorComponent,
   ],
   templateUrl: './board-list.component.html',
@@ -38,9 +37,5 @@ export class BoardListComponent implements OnInit {
   async ngOnInit(): Promise<void> {
     const boards = await findBoardsByScrumBoardUseCase.execute(this.scrumBoardId);
     this.store.set(boards);
-  }
-
-  public cardDropped(event: any) {
-    console.log(event);
   }
 }

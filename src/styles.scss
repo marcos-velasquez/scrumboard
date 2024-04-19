@@ -58,7 +58,7 @@ body {
 
 @layer base {
   .section__header {
-    @apply bg-primary text-primary-foreground sticky top-0 w-full z-30 flex pb-4 px-4 md:px-8 pt-24 flex-col sm:flex-row items-start sm:items-center sm:justify-between shadow-md;
+    @apply bg-primary text-primary-foreground sticky top-0 w-full z-40 flex pb-4 px-4 md:px-8 pt-24 flex-col sm:flex-row items-start sm:items-center sm:justify-between shadow-md;
   }
 
   .section__body {

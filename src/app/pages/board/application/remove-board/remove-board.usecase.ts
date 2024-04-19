@@ -1,4 +1,5 @@
 import { UseCase } from '../../../../core/application/base.usecase';
+import { BoardRemovedEvent } from '../../domain/board.event';
 import { Board } from '../../domain/board.model';
 import { BoardRepository } from '../../domain/board.repository';
 
@@ -9,5 +10,6 @@ export class RemoveBoardUseCase extends UseCase<Board, void> {
 
   async execute(board: Board): Promise<void> {
     await this.boardRepository.remove(board);
+    this.bus.publish(BoardRemovedEvent.key, new BoardRemovedEvent(board));
   }
 }

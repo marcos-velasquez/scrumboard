@@ -1,3 +1,9 @@
+:host {
+  height: 100%;
+  display: grid;
+  grid-template-rows: auto 1fr;
+}
+
 .cdk-drag-preview {
   @apply shadow-2xl;
 }

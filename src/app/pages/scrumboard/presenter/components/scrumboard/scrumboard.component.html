@@ -1,11 +1,26 @@
-<a
-  class="relative flex flex-col items-start w-56 p-6 rounded-lg shadow bg-card hover:shadow-xl transition-shadow duration-150 ease-in-out"
->
-  <div class="h-10 w-10 rounded-full bg-primary flex items-center justify-center">
-    <hlm-icon class="text-primary-foreground" size="base" [name]="scrumBoard().icon.value" />
-  </div>
+<div class="relative">
+  <a
+    [routerLink]="[scrumBoard().id]"
+    class="relative flex flex-col items-start w-56 p-6 rounded-lg shadow bg-card hover:shadow-xl transition-shadow duration-150 ease-in-out"
+  >
+    <div class="h-10 w-10 rounded-full bg-primary flex items-center justify-center">
+      <hlm-icon class="text-primary-foreground" size="base" [name]="scrumBoard().icon" />
+    </div>
 
-  <div (click)="$event.stopPropagation()" class="absolute top-2 right-2">
+    <div>
+      <h2 hlmH3 class="mt-5 line-clamp-2">{{ scrumBoard().title }}</h2>
+      <p hlmMuted class="mt-0.5 line-clamp-2">{{ scrumBoard().description }}</p>
+    </div>
+
+    <div hlmSeparator class="my-4 w-20"></div>
+
+    <div class="flex items-center gap-1">
+      <p hlmP>Edited:</p>
+      <small hlmMuted>{{ scrumBoard().lastActivity | timeAgo }}</small>
+    </div>
+  </a>
+
+  <div class="absolute top-2 right-2">
     <app-confirm-dialog
       (confirm)="remove()"
       [config]="{
@@ -18,16 +33,4 @@
     >
     </app-confirm-dialog>
   </div>
-
-  <div>
-    <h2 hlmH3 class="mt-5 line-clamp-2">{{ scrumBoard().title }}</h2>
-    <p hlmMuted class="mt-0.5 line-clamp-2">{{ scrumBoard().description }}</p>
-  </div>
-
-  <div hlmSeparator class="my-4 w-20"></div>
-
-  <div class="flex items-center gap-1">
-    <p hlmP>Edited:</p>
-    <small hlmMuted>{{ scrumBoard().lastActivity | timeAgo }}</small>
-  </div>
-</a>
+</div>

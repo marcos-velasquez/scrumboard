@@ -14,3 +14,10 @@ export class BoardRemovedEvent extends DomainEvent {
     super();
   }
 }
+
+export class BoardRenamedEvent extends DomainEvent {
+  public static override key = 'board.renamed';
+  constructor(public readonly board: Board) {
+    super();
+  }
+}
