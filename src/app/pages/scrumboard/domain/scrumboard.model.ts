@@ -42,6 +42,10 @@ export class ScrumBoard {
     return this._lastActivity;
   }
 
+  public updateLastActivity() {
+    this._lastActivity = new Date();
+  }
+
   public values() {
     return {
       id: this.id,

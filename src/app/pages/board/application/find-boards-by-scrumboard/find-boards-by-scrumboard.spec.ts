@@ -6,6 +6,7 @@ describe('FindBoardsByScrumBoardUseCase', () => {
   const repository = {
     save: jest.fn(),
     remove: jest.fn(),
+    update: jest.fn(),
     getAllByScrumBoardId: jest.fn(() => Promise.resolve([Board.create('title', 'description')])),
   };
 

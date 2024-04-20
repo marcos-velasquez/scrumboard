@@ -17,6 +17,11 @@ export class ScrumBoardLocalStorageRepository implements ScrumBoardRepository {
     localStorage.setItem(this.KEY, JSON.stringify(data));
   }
 
+  public async update(scrumBoard: ScrumBoard): Promise<void> {
+    await this.remove(scrumBoard);
+    await this.save(scrumBoard);
+  }
+
   public async remove(scrumBoard: ScrumBoard): Promise<void> {
     const scrumBoards = await this.getAll();
     const index = scrumBoards.findIndex((b) => b.id === scrumBoard.id);

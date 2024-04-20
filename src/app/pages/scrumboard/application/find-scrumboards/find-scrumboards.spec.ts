@@ -7,6 +7,7 @@ describe('FindScrumBoardsUseCase', () => {
     save: jest.fn(),
     remove: jest.fn(),
     getAll: jest.fn(() => Promise.resolve([ScrumBoard.create('title', 'description', 'lucideHome')])),
+    update: jest.fn(),
   };
 
   beforeEach(() => {

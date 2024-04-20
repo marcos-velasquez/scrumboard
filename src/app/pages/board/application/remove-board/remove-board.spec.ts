@@ -7,6 +7,7 @@ describe('RemoveBoardUseCase', () => {
     save: jest.fn(),
     remove: jest.fn(),
     getAllByScrumBoardId: jest.fn(),
+    update: jest.fn(),
   };
 
   beforeEach(() => {
