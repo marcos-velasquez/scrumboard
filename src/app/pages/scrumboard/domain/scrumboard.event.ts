@@ -1,4 +1,4 @@
-import { DomainEvent } from '../../../core/domain/domain.event';
+import { DomainEvent } from '../../../shared/domain';
 import { ScrumBoard } from './scrumboard.model';
 
 export class ScrumBoardSavedEvent extends DomainEvent {

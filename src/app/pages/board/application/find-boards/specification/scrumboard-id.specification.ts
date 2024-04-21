@@ -1,4 +1,4 @@
-import { Specification } from '../../../../../core/domain/specification';
+import { Specification } from '../../../../../shared/domain';
 import { Board } from '../../../domain/board.model';
 
 export class ScrumBoardIdSpecification extends Specification<Board> {

@@ -1,5 +1,5 @@
 import { Pipe, type PipeTransform } from '@angular/core';
-import { TimeAgo } from '../../utils';
+import { TimeAgo } from '../../../domain';
 
 @Pipe({ name: 'timeAgo', standalone: true })
 export class TimeAgoPipe implements PipeTransform {

@@ -1,4 +1,4 @@
-import { UUID } from '../../../shared/utils';
+import { UUID } from '../../../shared/domain';
 import { ScrumBoardIcon } from './scrumboard-icon.model';
 
 export class ScrumBoard {

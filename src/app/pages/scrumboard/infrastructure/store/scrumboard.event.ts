@@ -1,5 +1,5 @@
 import { Injectable, inject } from '@angular/core';
-import { bus } from '../../../../core/domain/event-bus.model';
+import { bus } from '../../../../shared/domain';
 import { ScrumBoardSavedEvent, ScrumBoardRemovedEvent } from '../../domain/scrumboard.event';
 import { ScrumBoardStore } from './scrumboard.store';
 

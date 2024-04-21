@@ -1,5 +1,5 @@
-import { Specification, TrueSpecification } from '../../../../core/domain/specification';
-import { UseCase } from '../../../../core/application/base.usecase';
+import { Specification, TrueSpecification } from '../../../../shared/domain';
+import { UseCase } from '../../../../shared/application';
 import { Board } from '../../domain/board.model';
 import { BoardRepository } from '../../domain/board.repository';
 

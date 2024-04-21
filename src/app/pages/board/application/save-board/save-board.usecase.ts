@@ -1,4 +1,4 @@
-import { UseCase } from '../../../../core/application/base.usecase';
+import { UseCase } from '../../../../shared/application';
 import { BoardRepository } from '../../domain/board.repository';
 import { Board } from '../../domain/board.model';
 import { BoardSavedEvent } from '../../domain/board.event';

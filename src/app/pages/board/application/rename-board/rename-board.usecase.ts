@@ -1,4 +1,4 @@
-import { UseCase } from '../../../../core/application/base.usecase';
+import { UseCase } from '../../../../shared/application';
 import { BoardRenamedEvent } from '../../domain/board.event';
 import { BoardRepository } from '../../domain/board.repository';
 import { RenameBoardInput } from './rename-board.input';

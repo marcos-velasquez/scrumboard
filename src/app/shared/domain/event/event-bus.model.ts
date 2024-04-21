@@ -1,5 +1,5 @@
 import { ReplaySubject } from 'rxjs';
-import { DomainEvent } from '../domain/domain.event';
+import { DomainEvent } from './domain.event';
 
 class EventBus {
   private readonly _events = new Map<string, ReplaySubject<DomainEvent>>();

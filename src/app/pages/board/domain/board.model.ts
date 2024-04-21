@@ -1,4 +1,4 @@
-import { UUID } from '../../../shared/utils';
+import { UUID } from '../../../shared/domain';
 
 export class Board {
   public static create(scrumBoardId: string, title: string) {

@@ -1,5 +1,5 @@
 import { Injectable, inject } from '@angular/core';
-import { bus } from '../../../../core/domain/event-bus.model';
+import { bus } from '../../../../shared/domain';
 import { BoardRemovedEvent, BoardSavedEvent } from '../../domain/board.event';
 import { BoardStore } from './board.store';
 

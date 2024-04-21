@@ -1,4 +1,4 @@
-import { DomainEvent } from '../../../core/domain/domain.event';
+import { DomainEvent } from '../../../shared/domain';
 import { Board } from './board.model';
 
 export class BoardSavedEvent extends DomainEvent {

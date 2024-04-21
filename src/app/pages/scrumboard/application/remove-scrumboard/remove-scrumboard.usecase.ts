@@ -1,4 +1,4 @@
-import { UseCase } from '../../../../core/application/base.usecase';
+import { UseCase } from '../../../../shared/application';
 import { ScrumBoardRepository } from '../../domain/scrumboard.repository';
 import { ScrumBoard } from '../../domain/scrumboard.model';
 import { ScrumBoardRemovedEvent } from '../../domain/scrumboard.event';

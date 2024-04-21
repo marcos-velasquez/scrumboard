@@ -1,4 +1,4 @@
-import { TrueSpecification } from '../../../../core/domain/specification';
+import { TrueSpecification } from '../../../../shared/domain';
 import { Board } from '../../domain/board.model';
 import { BoardRepository } from '../../domain/board.repository';
 import { BoardData, BoardMapper } from './board.mapper';

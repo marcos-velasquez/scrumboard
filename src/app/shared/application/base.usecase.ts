@@ -1,4 +1,4 @@
-import { bus } from '../domain/event-bus.model';
+import { bus } from '../domain/event/event-bus.model';
 
 export abstract class UseCase<T, K> {
   public readonly bus = bus;

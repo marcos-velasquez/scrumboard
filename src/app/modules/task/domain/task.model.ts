@@ -1,4 +1,4 @@
-import { UUID } from '../../../shared/utils';
+import { UUID } from '../../../shared/domain';
 
 export class Task {
   public static create(title: string, description: string, labels?: string[], dueDate?: Date | null) {
