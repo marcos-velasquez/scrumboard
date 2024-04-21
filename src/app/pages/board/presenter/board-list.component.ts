@@ -7,7 +7,7 @@ import { HlmIconModule } from '@spartan-ng/ui-icon-helm';
 import { BoardCreatorComponent } from './components/board-creator/board-creator.component';
 import { BoardComponent } from './components/board/board.component';
 import { findBoardsUseCase } from '../application';
-import { BoardStore, BoardStoreEvent } from '../infrastructure/store';
+import { BoardStore, BoardStoreSubscriber } from '../infrastructure/store';
 import { ScrumBoardIdSpecification } from '../application/find-boards/specification';
 
 @Component({
@@ -31,7 +31,7 @@ export class BoardListComponent implements OnInit {
   public readonly store = inject(BoardStore);
 
   constructor() {
-    inject(BoardStoreEvent).init();
+    inject(BoardStoreSubscriber).init();
   }
 
   async ngOnInit(): Promise<void> {

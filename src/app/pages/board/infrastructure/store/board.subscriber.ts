@@ -4,7 +4,7 @@ import { BoardRemovedEvent, BoardSavedEvent } from '../../domain/board.event';
 import { BoardStore } from './board.store';
 
 @Injectable({ providedIn: 'root' })
-export class BoardStoreEvent {
+export class BoardStoreSubscriber {
   public readonly store = inject(BoardStore);
 
   public init() {

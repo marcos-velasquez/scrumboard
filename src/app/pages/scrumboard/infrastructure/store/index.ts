@@ -1,2 +1,2 @@
 export * from './scrumboard.store';
-export * from './scrumboard.event';
+export * from './scrumboard.subscriber';

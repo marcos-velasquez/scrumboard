@@ -4,7 +4,7 @@ import { ScrumBoardSavedEvent, ScrumBoardRemovedEvent } from '../../domain/scrum
 import { ScrumBoardStore } from './scrumboard.store';
 
 @Injectable({ providedIn: 'root' })
-export class ScrumBoardStoreEvent {
+export class ScrumBoardStoreSubscriber {
   public readonly store = inject(ScrumBoardStore);
 
   public init() {
