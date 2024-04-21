@@ -1,14 +1,16 @@
 import { Injectable, inject } from '@angular/core';
 import { bus } from '../../../../shared/domain';
+import { BaseSubscriber } from '../../../../shared/infrastructure';
 import { ScrumBoardSavedEvent, ScrumBoardRemovedEvent, ScrumBoardUpdatedEvent } from '../../domain/scrumboard.event';
 import { ScrumBoardStore } from './scrumboard.store';
 import { BoardStoreSubscriber } from './board.subscriber';
 
 @Injectable({ providedIn: 'root' })
-export class ScrumBoardStoreSubscriber {
-  public readonly store = inject(ScrumBoardStore);
-  public readonly boardSubscriber = inject(BoardStoreSubscriber);
-  public init() {
+export class ScrumBoardStoreSubscriber extends BaseSubscriber {
+  private readonly store = inject(ScrumBoardStore);
+  private readonly boardSubscriber = inject(BoardStoreSubscriber);
+
+  protected initSubscriber() {
     this.boardSubscriber.init();
 
     bus.on<ScrumBoardSavedEvent>(ScrumBoardSavedEvent.key).subscribe((event) => {
