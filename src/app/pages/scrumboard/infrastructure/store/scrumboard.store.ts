@@ -19,11 +19,19 @@ export const ScrumBoardStore = signalStore(
     },
   }),
   withMethods((store) => ({
+    findById(id: string) {
+      return store.scrumBoards().find((scrumBoard) => scrumBoard.id === id);
+    },
     insert(scrumBoard: ScrumBoard) {
       patchState(store, (state) => ({ scrumBoards: [...state.scrumBoards, scrumBoard] }));
     },
     remove(scrumBoard: ScrumBoard) {
       patchState(store, (state) => ({ scrumBoards: state.scrumBoards.filter(({ id }) => id !== scrumBoard.id) }));
+    },
+    update(scrumBoard: ScrumBoard) {
+      patchState(store, (state) => ({
+        scrumBoards: state.scrumBoards.map((b) => (b.id === scrumBoard.id ? scrumBoard : b)),
+      }));
     },
   }))
 );

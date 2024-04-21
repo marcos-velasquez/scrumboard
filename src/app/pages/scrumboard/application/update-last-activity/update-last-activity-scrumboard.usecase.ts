@@ -1,4 +1,5 @@
 import { UseCase } from '../../../../shared/application';
+import { ScrumBoardUpdatedEvent } from '../../domain/scrumboard.event';
 import { ScrumBoard } from '../../domain/scrumboard.model';
 import { ScrumBoardRepository } from '../../domain/scrumboard.repository';
 
@@ -7,8 +8,9 @@ export class UpdateLastActivityScrumBoardUseCase extends UseCase<ScrumBoard, voi
     super();
   }
 
-  public execute(scrumBoard: ScrumBoard): Promise<void> {
+  public async execute(scrumBoard: ScrumBoard): Promise<void> {
     scrumBoard.updateLastActivity();
-    return this.scrumBoardRepository.update(scrumBoard);
+    await this.scrumBoardRepository.update(scrumBoard);
+    this.bus.publish(ScrumBoardUpdatedEvent.key, new ScrumBoardUpdatedEvent(scrumBoard));
   }
 }

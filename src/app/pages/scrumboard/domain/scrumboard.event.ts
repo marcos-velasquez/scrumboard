@@ -14,3 +14,10 @@ export class ScrumBoardRemovedEvent extends DomainEvent {
     super();
   }
 }
+
+export class ScrumBoardUpdatedEvent extends DomainEvent {
+  public static override key = 'scrumboard.updated';
+  constructor(public readonly scrumBoard: ScrumBoard) {
+    super();
+  }
+}
