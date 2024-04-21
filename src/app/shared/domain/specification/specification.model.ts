@@ -79,6 +79,7 @@ export class TrueSpecification<T> extends Specification<T> {
     super();
   }
   isSatisfiedBy(_: T): boolean {
+    console.log('true', _);
     return true;
   }
 }

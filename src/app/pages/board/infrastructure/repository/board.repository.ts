@@ -21,8 +21,13 @@ export class BoardLocalStorageRepository implements BoardRepository {
   }
 
   async update(board: Board): Promise<void> {
-    await this.remove(board);
-    await this.save(board);
+    const boards = await this.getAll();
+    const index = boards.findIndex((b) => b.id === board.id);
+    if (index !== -1) {
+      boards[index] = board;
+      const data = boards.map((b) => BoardMapper.fromDomain(b));
+      localStorage.setItem(this.KEY, JSON.stringify(data));
+    }
   }
 
   async remove(board: Board): Promise<void> {
