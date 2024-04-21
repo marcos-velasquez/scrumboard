@@ -6,9 +6,9 @@ import { HlmButtonModule } from '@spartan-ng/ui-button-helm';
 import { HlmIconModule } from '@spartan-ng/ui-icon-helm';
 import { BoardCreatorComponent } from './components/board-creator/board-creator.component';
 import { BoardComponent } from './components/board/board.component';
-import { findBoardsByScrumBoardUseCase } from '../application';
+import { findBoardsUseCase } from '../application';
 import { BoardStore, BoardStoreEvent } from '../infrastructure/store';
-import { Board } from '../domain/board.model';
+import { ScrumBoardIdSpecification } from '../application/find-boards/specification';
 
 @Component({
   selector: 'app-board-list',
@@ -35,7 +35,7 @@ export class BoardListComponent implements OnInit {
   }
 
   async ngOnInit(): Promise<void> {
-    const boards = await findBoardsByScrumBoardUseCase.execute(this.scrumBoardId);
+    const boards = await findBoardsUseCase.execute(new ScrumBoardIdSpecification(this.scrumBoardId));
     this.store.set(boards);
   }
 }

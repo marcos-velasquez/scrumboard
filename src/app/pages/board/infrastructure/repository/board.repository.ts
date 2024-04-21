@@ -1,3 +1,4 @@
+import { TrueSpecification } from '../../../../core/domain/specification';
 import { Board } from '../../domain/board.model';
 import { BoardRepository } from '../../domain/board.repository';
 import { BoardData, BoardMapper } from './board.mapper';
@@ -5,15 +6,12 @@ import { BoardData, BoardMapper } from './board.mapper';
 export class BoardLocalStorageRepository implements BoardRepository {
   private readonly KEY = 'boards';
 
-  private getAll(): Promise<Board[]> {
+  public getAll(specification = new TrueSpecification<Board>()): Promise<Board[]> {
     const item = localStorage.getItem(this.KEY);
     const boards: BoardData[] = item ? JSON.parse(item) : [];
-    return Promise.resolve(boards.map((board) => BoardMapper.toDomain(board)));
-  }
-
-  async getAllByScrumBoardId(scrumBoardId: string): Promise<Board[]> {
-    const boards = await this.getAll();
-    return boards.filter((board) => board.scrumBoardId === scrumBoardId);
+    return Promise.resolve(
+      boards.map((board) => BoardMapper.toDomain(board)).filter((board) => specification.isSatisfiedBy(board))
+    );
   }
 
   async save(board: Board): Promise<void> {

@@ -6,7 +6,7 @@ describe('RemoveBoardUseCase', () => {
   const repository = {
     save: jest.fn(),
     remove: jest.fn(),
-    getAllByScrumBoardId: jest.fn(),
+    getAll: jest.fn(),
     update: jest.fn(),
   };
 
