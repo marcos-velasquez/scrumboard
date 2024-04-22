@@ -35,7 +35,8 @@ export class BoardLocalStorageRepository implements BoardRepository {
     const index = boards.findIndex((b) => b.id === board.id);
     if (index !== -1) {
       boards.splice(index, 1);
-      localStorage.setItem(this.KEY, JSON.stringify(boards));
+      const data = boards.map((b) => BoardMapper.fromDomain(b));
+      localStorage.setItem(this.KEY, JSON.stringify(data));
     }
   }
 }

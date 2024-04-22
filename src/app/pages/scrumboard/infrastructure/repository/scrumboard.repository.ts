@@ -32,7 +32,8 @@ export class ScrumBoardLocalStorageRepository implements ScrumBoardRepository {
     const index = scrumBoards.findIndex((b) => b.id === scrumBoard.id);
     if (index !== -1) {
       scrumBoards.splice(index, 1);
-      localStorage.setItem(this.KEY, JSON.stringify(scrumBoards));
+      const data = scrumBoards.map((b) => ScrumBoardMapper.fromDomain(b));
+      localStorage.setItem(this.KEY, JSON.stringify(data));
     }
   }
 }
