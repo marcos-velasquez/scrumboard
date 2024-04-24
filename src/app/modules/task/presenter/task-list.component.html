@@ -7,7 +7,13 @@
 >
  -->
 
-<div class="p-3 pb-0" [id]="boardId()" cdkDropList [cdkDropListData]="store.get(boardId())">
+<div
+  class="p-3 pb-0"
+  [id]="boardId()"
+  cdkDropList
+  [cdkDropListData]="store.get(boardId())"
+  (cdkDropListDropped)="changePosition($event)"
+>
   @for(task of store.get(boardId()); track task.boardId){
   <div cdkDrag>
     <app-task [task]="task"></app-task>

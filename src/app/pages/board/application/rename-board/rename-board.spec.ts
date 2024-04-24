@@ -1,4 +1,4 @@
-import { UUID } from '../../../../shared/utils';
+import { UUID } from '../../../../shared/domain';
 import { Board } from '../../domain/board.model';
 import { BoardRepository } from '../../domain/board.repository';
 import { RenameBoardUseCase } from './rename-board.usecase';

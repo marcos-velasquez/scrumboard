@@ -36,6 +36,7 @@ import {
   lucideCopy,
   lucideArrowLeft,
   lucideX,
+  lucideXCircle,
   lucidePlusCircle,
   lucideMenu,
   lucideMenuSquare,
@@ -82,6 +83,7 @@ export const icons = {
   lucidePlusCircle,
   lucideMenu,
   lucideMenuSquare,
+  lucideXCircle,
 };
 
 export const availableIcons = [
@@ -125,4 +127,5 @@ export const availableIcons = [
   'lucidePlusCircle',
   'lucideMenu',
   'lucideMenuSquare',
+  'lucideXCircle',
 ];

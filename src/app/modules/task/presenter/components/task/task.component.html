@@ -1,3 +1,17 @@
-<a class="flex flex-col items-start mb-3 p-5 space-y-3 bg-card-foreground text-card shadow rounded-lg overflow-hidden">
+<a class="relative flex flex-col items-start mb-3 p-5 bg-card-foreground text-card shadow rounded-lg overflow-hidden">
   <div class="text-lg font-medium leading-5 break-all text-balance">{{ task().title }}</div>
+
+  <div class="absolute -top-1 -right-1">
+    <app-confirm-dialog
+      (confirm)="remove()"
+      [config]="{
+        description: 'This action cannot be undone. This will permanently delete your task.',
+        icon: 'lucideXCircle',
+        iconClass: 'text-destructive h-5 w-5',
+        variant: 'link',
+        size: 'icon'
+      }"
+    >
+    </app-confirm-dialog>
+  </div>
 </a>
