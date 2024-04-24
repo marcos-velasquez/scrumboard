@@ -2,7 +2,7 @@ import { Specification } from '../../../../../shared/domain';
 import { Board } from '../../../domain/board.model';
 
 export class ScrumBoardIdSpecification extends Specification<Board> {
-  constructor(public readonly scrumBoardId: string) {
+  constructor(private readonly scrumBoardId: string) {
     super();
   }
 

@@ -12,13 +12,13 @@
     </button>
     <form class="flex flex-col items-start w-full p-3" [ngClass]="{ 'opacity-0': !formVisible() }" [formGroup]="form">
       <input
+        #titleInput
         hlmInput
-        class="w-full py-2 px-3 leading-5 rounded-md shadow-sm border border-gray-300 bg-white focus:border-primary dark:border-gray-500 dark:focus:border-primary dark:bg-black dark:bg-opacity-5"
+        class="w-full rounded-md shadow-sm border border-gray-300 bg-white focus:border-primary dark:border-gray-500 dark:focus:border-primary dark:bg-black dark:bg-opacity-5"
         [autocomplete]="'off'"
         [formControlName]="'title'"
         [placeholder]="'Enter list title...'"
         (keydown.enter)="save()"
-        #titleInput
       />
       <div class="w-full flex items-center justify-between mt-3">
         <button hlmBtn (click)="save()" class="h-8">Add list</button>

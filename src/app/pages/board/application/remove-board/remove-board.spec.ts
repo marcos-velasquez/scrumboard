@@ -14,7 +14,7 @@ describe('RemoveBoardUseCase', () => {
     removeBoardUsecase = new RemoveBoardUseCase(repository);
   });
 
-  it('should remove scrumboard', async () => {
+  it('should remove board', async () => {
     const board = Board.create('title', 'description');
     await removeBoardUsecase.execute(board);
     expect(repository.remove).toHaveBeenCalledWith(board);

@@ -1,0 +1,37 @@
+<div class="bg-secondary text-secondary-foreground" [class.h-14]="!formVisible()">
+  <div class="relative flex w-full h-full overflow-hidden rounded-xl">
+    <button
+      hlmBtn
+      (click)="toggleFormVisibility()"
+      variant="secondary"
+      class="h-full w-full absolute inset-0 z-30 justify-start rounded-xl px-0 bg-transparent"
+      [ngClass]="{ 'opacity-0 pointer-events-none': formVisible() }"
+    >
+      <hlm-icon name="lucidePlusCircle" size="sm" class="mr-2"></hlm-icon>
+      Create list
+    </button>
+    <form
+      class="flex flex-col items-start w-full bg-card text-card-foreground p-5"
+      [ngClass]="{ 'opacity-0': !formVisible() }"
+      [formGroup]="form"
+    >
+      <div class="flex w-full rounded-lg shadow">
+        <textarea
+          #titleInput
+          hlmInput
+          class="w-full min-h-20 rounded-md shadow-sm border border-gray-300 bg-white focus:border-primary dark:border-gray-500 dark:focus:border-primary dark:bg-black dark:bg-opacity-5 resize-none"
+          [autocomplete]="'off'"
+          [formControlName]="'title'"
+          [placeholder]="'Enter task title...'"
+          (keydown.enter)="save()"
+        ></textarea>
+      </div>
+      <div class="w-full flex items-center justify-between mt-3">
+        <button hlmBtn (click)="save()" class="h-8">Add task</button>
+        <button hlmBtn (click)="toggleFormVisibility()" size="icon" variant="outline" class="h-8 w-8">
+          <hlm-icon name="lucideX" size="sm"></hlm-icon>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

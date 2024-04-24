@@ -1,19 +1,41 @@
 import { UUID } from '../../../shared/domain';
 
 export class Task {
-  public static create(title: string, description: string, labels?: string[], dueDate?: Date | null) {
-    return this.build(UUID.generate(), title, description, labels || [], dueDate || null);
+  public static create(boardId: string, title: string) {
+    return this.build(UUID.generate(), boardId, title);
   }
 
-  public static build(id: string, title: string, description: string, labels: string[], dueDate: Date | null) {
-    return new Task(id, title, description, labels, dueDate);
+  public static build(id: string, boardId: string, title: string) {
+    return new Task(id, boardId, title);
   }
 
-  constructor(
-    public readonly id: string,
-    public readonly title: string,
-    public readonly description: string,
-    public readonly labels: string[],
-    public readonly dueDate: Date | null
-  ) {}
+  private constructor(private readonly _id: string, private readonly _boardId: string, private _title: string) {}
+
+  public get id() {
+    return this._id;
+  }
+
+  public get boardId() {
+    return this._boardId;
+  }
+
+  public get title() {
+    return this._title;
+  }
+
+  public rename(title: string) {
+    this._title = title;
+  }
+
+  public isTitleEqual(title: string) {
+    return this._title === title;
+  }
+
+  public values() {
+    return {
+      id: this.id,
+      boardId: this.boardId,
+      title: this.title,
+    };
+  }
 }
