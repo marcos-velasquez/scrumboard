@@ -6,4 +6,5 @@ export interface TaskRepository {
   save(task: Task): Promise<void>;
   update(task: Task): Promise<void>;
   remove(task: Task): Promise<void>;
+  set(boardId: string, tasks: Task[]): Promise<void>;
 }

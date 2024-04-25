@@ -1,4 +1,5 @@
 import { TrueSpecification } from '../../../../shared/domain';
+import { BoardIdSpecification } from '../../application/find-tasks/specification';
 import { Task } from '../../domain/task.model';
 import { TaskRepository } from '../../domain/task.repository';
 import { TaskData, TaskMapper } from './task.mapper';
@@ -37,6 +38,20 @@ export class TaskLocalStorageRepository implements TaskRepository {
       tasks.splice(index, 1);
       const data = tasks.map((b) => TaskMapper.fromDomain(b));
       localStorage.setItem(this.KEY, JSON.stringify(data));
+    }
+  }
+
+  private async removeAll(boardId: string): Promise<void> {
+    const tasks = await this.getAll(new BoardIdSpecification(boardId));
+    for (const task of tasks) {
+      await this.remove(task);
+    }
+  }
+
+  public async set(boardId: string, tasks: Task[]): Promise<void> {
+    await this.removeAll(boardId);
+    for (const task of tasks) {
+      await this.save(task);
     }
   }
 }

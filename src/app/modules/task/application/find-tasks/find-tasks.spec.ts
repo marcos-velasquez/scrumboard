@@ -7,6 +7,7 @@ describe('FindTasksUseCase', () => {
     remove: jest.fn(),
     update: jest.fn(),
     getAll: jest.fn(() => Promise.resolve([Task.create('boardId', 'title')])),
+    set: jest.fn(),
   };
 
   beforeEach(() => {

@@ -21,3 +21,10 @@ export class TaskUpdatedEvent extends DomainEvent {
     super();
   }
 }
+
+export class TasksSetEvent extends DomainEvent {
+  public static override key = 'tasks.set';
+  constructor(public readonly boardId: string, public readonly tasks: Task[]) {
+    super();
+  }
+}

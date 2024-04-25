@@ -8,6 +8,7 @@ describe('RemoveTaskUseCase', () => {
     remove: jest.fn(),
     getAll: jest.fn(),
     update: jest.fn(),
+    set: jest.fn(),
   };
 
   beforeEach(() => {

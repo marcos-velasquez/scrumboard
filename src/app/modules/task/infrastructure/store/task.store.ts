@@ -16,9 +16,6 @@ export const TaskStore = signalStore(
     get(boardId: string) {
       return store.tasks().filter((task) => task.boardId === boardId) || [];
     },
-    getByIndex(boardId: string, index: number) {
-      return this.get(boardId)[index];
-    },
     push(tasks: Task[]) {
       patchState(store, { tasks: [...store.tasks(), ...tasks] });
     },
@@ -27,6 +24,9 @@ export const TaskStore = signalStore(
     },
     remove(task: Task) {
       patchState(store, { tasks: store.tasks().filter((t) => t !== task) });
+    },
+    removeByBoardId(boardId: string) {
+      patchState(store, { tasks: store.tasks().filter((t) => t.boardId !== boardId) });
     },
   }))
 );
