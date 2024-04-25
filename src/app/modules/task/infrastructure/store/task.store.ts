@@ -28,5 +28,8 @@ export const TaskStore = signalStore(
     removeByBoardId(boardId: string) {
       patchState(store, { tasks: store.tasks().filter((t) => t.boardId !== boardId) });
     },
+    reset() {
+      patchState(store, { tasks: [] });
+    },
   }))
 );

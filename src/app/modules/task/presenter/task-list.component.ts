@@ -1,6 +1,6 @@
-import { Component, OnInit, inject, input } from '@angular/core';
+import { Component, OnDestroy, OnInit, inject, input } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { CdkDragDrop, DragDropModule, moveItemInArray } from '@angular/cdk/drag-drop';
+import { CdkDragDrop, DragDropModule, moveItemInArray, transferArrayItem } from '@angular/cdk/drag-drop';
 import { TaskCreatorComponent } from './components/task-creator/task-creator.component';
 import { TaskStore, TaskStoreSubscriber } from '../infrastructure/store';
 import { setTasksUseCase, findTasksUseCase } from '../application';
@@ -14,7 +14,7 @@ import { Task } from '../domain/task.model';
   imports: [CommonModule, DragDropModule, TaskComponent, TaskCreatorComponent],
   templateUrl: './task-list.component.html',
 })
-export class TaskListComponent implements OnInit {
+export class TaskListComponent implements OnInit, OnDestroy {
   public readonly boardId = input.required<string>();
   public readonly store = inject(TaskStore);
 
@@ -27,9 +27,19 @@ export class TaskListComponent implements OnInit {
     this.store.push(tasks);
   }
 
-  public changePosition(event: CdkDragDrop<Task[]>) {
-    const tasks = [...this.store.get(this.boardId())];
-    moveItemInArray(tasks, event.previousIndex, event.currentIndex);
-    setTasksUseCase.execute({ boardId: this.boardId(), tasks });
+  public async dropped(event: CdkDragDrop<Task[]>) {
+    if (event.container === event.previousContainer) {
+      moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
+      setTasksUseCase.execute({ boardId: event.container.id, tasks: event.container.data });
+    } else {
+      transferArrayItem(event.previousContainer.data, event.container.data, event.previousIndex, event.currentIndex);
+      event.container.data[event.currentIndex].setBoardId(event.container.id);
+      await setTasksUseCase.execute({ boardId: event.container.id, tasks: event.container.data });
+      await setTasksUseCase.execute({ boardId: event.previousContainer.id, tasks: event.previousContainer.data });
+    }
+  }
+
+  ngOnDestroy(): void {
+    this.store.reset();
   }
 }

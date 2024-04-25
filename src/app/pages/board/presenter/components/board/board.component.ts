@@ -1,5 +1,6 @@
 import { ChangeDetectionStrategy, Component, input } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { CdkScrollable } from '@angular/cdk/scrolling';
 import { HlmButtonModule } from '@spartan-ng/ui-button-helm';
 import { HlmIconModule } from '@spartan-ng/ui-icon-helm';
 import { BrnMenuTriggerDirective } from '@spartan-ng/ui-menu-brain';
@@ -13,6 +14,7 @@ import { removeBoardUseCase, renameBoardUseCase } from '../../../application';
   standalone: true,
   imports: [
     CommonModule,
+    CdkScrollable,
     HlmButtonModule,
     HlmIconModule,
     BrnMenuTriggerDirective,

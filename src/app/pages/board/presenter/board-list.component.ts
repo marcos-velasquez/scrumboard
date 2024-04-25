@@ -1,6 +1,7 @@
 import { ChangeDetectionStrategy, Component, Input, OnInit, inject, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
+import { DragDropModule } from '@angular/cdk/drag-drop';
 import { HlmH1Directive } from '@spartan-ng/ui-typography-helm';
 import { HlmButtonModule } from '@spartan-ng/ui-button-helm';
 import { HlmIconModule } from '@spartan-ng/ui-icon-helm';
@@ -17,6 +18,7 @@ import { ScrumBoardStore } from '../../scrumboard/infrastructure/store';
   imports: [
     CommonModule,
     RouterModule,
+    DragDropModule,
     HlmH1Directive,
     HlmButtonModule,
     HlmIconModule,

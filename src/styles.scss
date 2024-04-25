@@ -68,6 +68,10 @@ body {
   .avatar {
     @apply w-8 h-8 rounded-full ring ring-offset-1 ring-secondary ring-offset-transparent object-cover;
   }
+
+  .scrollbar::-webkit-scrollbar {
+    display: none;
+  }
 }
 
 .cdk-drag-preview {

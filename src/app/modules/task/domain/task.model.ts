@@ -9,7 +9,7 @@ export class Task {
     return new Task(id, boardId, title);
   }
 
-  private constructor(private readonly _id: string, private readonly _boardId: string, private _title: string) {}
+  private constructor(private readonly _id: string, private _boardId: string, private _title: string) {}
 
   public get id() {
     return this._id;
@@ -21,6 +21,10 @@ export class Task {
 
   public get title() {
     return this._title;
+  }
+
+  public setBoardId(boardId: string) {
+    this._boardId = boardId;
   }
 
   public rename(title: string) {

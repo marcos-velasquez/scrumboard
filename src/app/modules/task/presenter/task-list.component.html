@@ -1,23 +1,17 @@
-<!-- <div
-  class="p-3 pb-0"
-  [id]="board().id"
-  cdkDropList
-  [cdkDropListData]="board().cards"
-  (cdkDropListDropped)="cardDropped($event)"
->
- -->
-
 <div
-  class="p-3 pb-0"
+  class="h-full p-3"
   [id]="boardId()"
   cdkDropList
   [cdkDropListData]="store.get(boardId())"
-  (cdkDropListDropped)="changePosition($event)"
+  (cdkDropListDropped)="dropped($event)"
 >
   @for(task of store.get(boardId()); track task.boardId){
   <div cdkDrag>
     <app-task [task]="task"></app-task>
   </div>
   }
-  <app-task-creator [boardId]="boardId()"></app-task-creator>
+
+  <footer class="w-full absolute left-0 bottom-0">
+    <app-task-creator [boardId]="boardId()"></app-task-creator>
+  </footer>
 </div>

@@ -12,7 +12,7 @@
 
 <div class="flex-auto p-6 sm:p-8 sm:pt-4 overflow-y-auto">
   <div class="flex h-full">
-    <div class="flex items-start gap-3">
+    <div cdkDropListGroup class="flex items-start gap-3">
       @for(board of store.boards(); track board.id){
       <app-board [board]="board"></app-board>
       }

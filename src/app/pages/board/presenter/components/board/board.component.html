@@ -1,4 +1,6 @@
-<div class="h-full grid grid-rows-[auto_1fr] flex-0 w-72 p-2 rounded-2xl bg-secondary text-secondary-foreground">
+<div
+  class="relative h-full grid grid-rows-[auto_1fr] flex-0 w-72 p-0 pb-16 rounded-2xl bg-secondary text-secondary-foreground"
+>
   <div class="flex items-center justify-between">
     <div
       class="flex items-center w-full py-2 px-3 rounded-md cursor-text border border-transparent focus-within:shadow-sm focus-within:border-primary"
@@ -37,7 +39,7 @@
     </ng-template>
   </div>
 
-  <div class="overflow-y-auto">
+  <div cdkScrollable class="scrollbar overflow-y-auto">
     <app-task-list [boardId]="board().id"></app-task-list>
   </div>
 </div>

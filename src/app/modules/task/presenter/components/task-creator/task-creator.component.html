@@ -1,14 +1,13 @@
 <div class="bg-secondary text-secondary-foreground" [class.h-14]="!formVisible()">
-  <div class="relative flex w-full h-full overflow-hidden rounded-xl">
+  <div class="relative flex w-full h-full overflow-hidden">
     <button
       hlmBtn
       (click)="toggleFormVisibility()"
-      variant="secondary"
-      class="h-full w-full absolute inset-0 z-30 justify-start rounded-xl p-0 bg-transparent"
+      class="h-full w-full absolute z-30 justify-start rounded-none"
       [ngClass]="{ 'opacity-0 pointer-events-none': formVisible() }"
     >
       <hlm-icon name="lucidePlusCircle" size="sm" class="mr-2"></hlm-icon>
-      Create list
+      Create card
     </button>
     <form
       class="flex flex-col items-start w-full bg-card text-card-foreground p-5"
@@ -24,6 +23,7 @@
           [formControlName]="'title'"
           [placeholder]="'Enter task title...'"
           (keydown.enter)="save()"
+          (keydown.esc)="toggleFormVisibility()"
         ></textarea>
       </div>
       <div class="w-full flex items-center justify-between mt-3">
