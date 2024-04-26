@@ -1,3 +1,1 @@
-export abstract class DomainEvent {
-  public static key: string;
-}
+export abstract class DomainEvent {}

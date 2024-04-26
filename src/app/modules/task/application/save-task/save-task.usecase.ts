@@ -12,6 +12,6 @@ export class SaveTaskUseCase extends UseCase<SaveTaskInput, void> {
   async execute(input: SaveTaskInput): Promise<void> {
     const task = Task.create(input.boardId, input.title);
     await this.taskRepository.save(task);
-    this.bus.publish(TaskSavedEvent.key, new TaskSavedEvent(task));
+    this.bus.publish(TaskSavedEvent.name, new TaskSavedEvent(task));
   }
 }

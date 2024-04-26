@@ -13,15 +13,15 @@ export class ScrumBoardStoreSubscriber extends BaseSubscriber {
   protected initSubscriber() {
     this.boardSubscriber.init();
 
-    bus.on<ScrumBoardSavedEvent>(ScrumBoardSavedEvent.key).subscribe((event) => {
+    bus.on<ScrumBoardSavedEvent>(ScrumBoardSavedEvent.name).subscribe((event) => {
       this.store.insert(event.scrumBoard);
     });
 
-    bus.on<ScrumBoardRemovedEvent>(ScrumBoardRemovedEvent.key).subscribe((event) => {
+    bus.on<ScrumBoardRemovedEvent>(ScrumBoardRemovedEvent.name).subscribe((event) => {
       this.store.remove(event.scrumBoard);
     });
 
-    bus.on<ScrumBoardUpdatedEvent>(ScrumBoardUpdatedEvent.key).subscribe((event) => {
+    bus.on<ScrumBoardUpdatedEvent>(ScrumBoardUpdatedEvent.name).subscribe((event) => {
       this.store.update(event.scrumBoard);
     });
   }

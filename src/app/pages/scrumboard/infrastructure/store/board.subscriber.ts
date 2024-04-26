@@ -12,9 +12,9 @@ export class BoardStoreSubscriber extends BaseSubscriber {
 
   protected initSubscriber() {
     merge(
-      bus.on<BoardSavedEvent>(BoardSavedEvent.key),
-      bus.on<BoardRemovedEvent>(BoardRemovedEvent.key),
-      bus.on<BoardUpdatedEvent>(BoardUpdatedEvent.key)
+      bus.on<BoardSavedEvent>(BoardSavedEvent.name),
+      bus.on<BoardRemovedEvent>(BoardRemovedEvent.name),
+      bus.on<BoardUpdatedEvent>(BoardUpdatedEvent.name)
     ).subscribe((event) => {
       const scrumBoard = this.store.findById(event.board.scrumBoardId);
       if (scrumBoard) {

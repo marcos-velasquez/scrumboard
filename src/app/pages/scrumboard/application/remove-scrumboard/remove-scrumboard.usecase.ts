@@ -10,6 +10,6 @@ export class RemoveScrumBoardUseCase extends UseCase<ScrumBoard, void> {
 
   public async execute(scrumBoard: ScrumBoard): Promise<void> {
     this.scrumBoardRepository.remove(scrumBoard);
-    this.bus.publish(ScrumBoardRemovedEvent.key, new ScrumBoardRemovedEvent(scrumBoard));
+    this.bus.publish(ScrumBoardRemovedEvent.name, new ScrumBoardRemovedEvent(scrumBoard));
   }
 }

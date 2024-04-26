@@ -10,6 +10,6 @@ export class RemoveTaskUseCase extends UseCase<Task, void> {
 
   public async execute(task: Task): Promise<void> {
     await this.taskRepository.remove(task);
-    this.bus.publish(TaskRemovedEvent.key, new TaskRemovedEvent(task));
+    this.bus.publish(TaskRemovedEvent.name, new TaskRemovedEvent(task));
   }
 }

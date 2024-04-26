@@ -16,6 +16,6 @@ export class SaveScrumBoardUseCase extends UseCase<SaveScrumBoardInput, void> {
       saveScrumBoardInput.icon
     );
     this.scrumBoardRepository.save(scrumboard);
-    this.bus.publish(ScrumBoardSavedEvent.key, new ScrumBoardSavedEvent(scrumboard));
+    this.bus.publish(ScrumBoardSavedEvent.name, new ScrumBoardSavedEvent(scrumboard));
   }
 }

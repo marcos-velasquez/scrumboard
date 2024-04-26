@@ -10,6 +10,6 @@ export class SetTasksUseCase extends UseCase<SetInput, void> {
 
   public async execute(input: SetInput): Promise<void> {
     await this.taskRepository.set(input.boardId, input.tasks);
-    this.bus.publish(TasksSetEvent.key, new TasksSetEvent(input.boardId, input.tasks));
+    this.bus.publish(TasksSetEvent.name, new TasksSetEvent(input.boardId, input.tasks));
   }
 }

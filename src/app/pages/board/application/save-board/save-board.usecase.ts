@@ -11,6 +11,6 @@ export class SaveBoardUseCase extends UseCase<SaveBoardInput, void> {
   async execute(input: SaveBoardInput): Promise<void> {
     const board = Board.create(input.scrumBoardId, input.title);
     await this.boardRepository.save(board);
-    this.bus.publish(BoardSavedEvent.key, new BoardSavedEvent(board));
+    this.bus.publish(BoardSavedEvent.name, new BoardSavedEvent(board));
   }
 }

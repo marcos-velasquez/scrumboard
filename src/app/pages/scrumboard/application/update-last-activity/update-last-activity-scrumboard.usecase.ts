@@ -11,6 +11,6 @@ export class UpdateLastActivityScrumBoardUseCase extends UseCase<ScrumBoard, voi
   public async execute(scrumBoard: ScrumBoard): Promise<void> {
     scrumBoard.updateLastActivity();
     await this.scrumBoardRepository.update(scrumBoard);
-    this.bus.publish(ScrumBoardUpdatedEvent.key, new ScrumBoardUpdatedEvent(scrumBoard));
+    this.bus.publish(ScrumBoardUpdatedEvent.name, new ScrumBoardUpdatedEvent(scrumBoard));
   }
 }

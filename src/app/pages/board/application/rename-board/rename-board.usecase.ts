@@ -12,6 +12,6 @@ export class RenameBoardUseCase extends UseCase<RenameBoardInput, void> {
     if (board.isTitleEqual(title)) return;
     board.rename(title);
     await this.boardRepository.update(board);
-    this.bus.publish(BoardUpdatedEvent.key, new BoardUpdatedEvent(board));
+    this.bus.publish(BoardUpdatedEvent.name, new BoardUpdatedEvent(board));
   }
 }

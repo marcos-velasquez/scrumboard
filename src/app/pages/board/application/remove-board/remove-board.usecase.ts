@@ -10,6 +10,6 @@ export class RemoveBoardUseCase extends UseCase<Board, void> {
 
   async execute(board: Board): Promise<void> {
     await this.boardRepository.remove(board);
-    this.bus.publish(BoardRemovedEvent.key, new BoardRemovedEvent(board));
+    this.bus.publish(BoardRemovedEvent.name, new BoardRemovedEvent(board));
   }
 }

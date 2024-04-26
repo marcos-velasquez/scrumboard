@@ -9,11 +9,11 @@ export class BoardStoreSubscriber extends BaseSubscriber {
   private readonly store = inject(BoardStore);
 
   protected initSubscriber() {
-    bus.on<BoardSavedEvent>(BoardSavedEvent.key).subscribe((event) => {
+    bus.on<BoardSavedEvent>(BoardSavedEvent.name).subscribe((event) => {
       this.store.insert(event.board);
     });
 
-    bus.on<BoardRemovedEvent>(BoardRemovedEvent.key).subscribe((event) => {
+    bus.on<BoardRemovedEvent>(BoardRemovedEvent.name).subscribe((event) => {
       this.store.remove(event.board);
     });
   }

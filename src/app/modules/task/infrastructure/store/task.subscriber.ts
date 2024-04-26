@@ -9,15 +9,15 @@ export class TaskStoreSubscriber extends BaseSubscriber {
   private readonly store = inject(TaskStore);
 
   protected initSubscriber() {
-    bus.on<TaskSavedEvent>(TaskSavedEvent.key).subscribe((event) => {
+    bus.on<TaskSavedEvent>(TaskSavedEvent.name).subscribe((event) => {
       this.store.insert(event.task);
     });
 
-    bus.on<TaskRemovedEvent>(TaskRemovedEvent.key).subscribe((event) => {
+    bus.on<TaskRemovedEvent>(TaskRemovedEvent.name).subscribe((event) => {
       this.store.remove(event.task);
     });
 
-    bus.on<TasksSetEvent>(TasksSetEvent.key).subscribe((event) => {
+    bus.on<TasksSetEvent>(TasksSetEvent.name).subscribe((event) => {
       this.store.removeByBoardId(event.boardId);
       this.store.push(event.tasks);
     });

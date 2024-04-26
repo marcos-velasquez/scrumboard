@@ -65,12 +65,8 @@ body {
     @apply pt-12 px-4 sm:px-8;
   }
 
-  .avatar {
-    @apply w-8 h-8 rounded-full ring ring-offset-1 ring-secondary ring-offset-transparent object-cover;
-  }
-
   .scrollbar::-webkit-scrollbar {
-    display: none;
+    @apply hidden;
   }
 }
 
@@ -79,7 +75,7 @@ body {
 }
 
 .cdk-drag-placeholder {
-  opacity: 0;
+  @apply opacity-0;
 }
 
 .cdk-drag-animating {
