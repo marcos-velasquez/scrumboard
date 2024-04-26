@@ -1,21 +1,15 @@
-import { UseCase } from '../../../../shared/application';
-import { ScrumBoardRepository } from '../../domain/scrumboard.repository';
+import { BaseRepository } from '../../../../shared/domain/repository/base.repository';
+import { SaveUseCase } from '../../../../shared/application';
 import { ScrumBoard } from '../../domain/scrumboard.model';
 import { SaveScrumBoardInput } from './save-scrumboard.input';
 import { ScrumBoardSavedEvent } from '../../domain/scrumboard.event';
 
-export class SaveScrumBoardUseCase extends UseCase<SaveScrumBoardInput, void> {
-  constructor(private readonly scrumBoardRepository: ScrumBoardRepository) {
-    super();
+export class SaveScrumBoardUseCase extends SaveUseCase<SaveScrumBoardInput, ScrumBoard> {
+  constructor(scrumBoardRepository: BaseRepository<ScrumBoard>) {
+    super(scrumBoardRepository, ScrumBoardSavedEvent);
   }
 
-  public async execute(saveScrumBoardInput: SaveScrumBoardInput): Promise<void> {
-    const scrumboard = ScrumBoard.create(
-      saveScrumBoardInput.title,
-      saveScrumBoardInput.description,
-      saveScrumBoardInput.icon
-    );
-    this.scrumBoardRepository.save(scrumboard);
-    this.bus.publish(ScrumBoardSavedEvent.name, new ScrumBoardSavedEvent(scrumboard));
+  public create(input: SaveScrumBoardInput): ScrumBoard {
+    return ScrumBoard.create(input.title, input.description, input.icon);
   }
 }

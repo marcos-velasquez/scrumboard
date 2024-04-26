@@ -1,13 +1,9 @@
-import { UseCase } from '../../../../shared/application';
-import { ScrumBoardRepository } from '../../domain/scrumboard.repository';
+import { BaseRepository } from '../../../../shared/domain/repository/base.repository';
+import { FindUseCase } from '../../../../shared/application';
 import { ScrumBoard } from '../../domain/scrumboard.model';
 
-export class FindScrumBoardsUseCase extends UseCase<void, ScrumBoard[]> {
-  constructor(private readonly scrumBoardRepository: ScrumBoardRepository) {
-    super();
-  }
-
-  public async execute(): Promise<ScrumBoard[]> {
-    return this.scrumBoardRepository.getAll();
+export class FindScrumBoardsUseCase extends FindUseCase<ScrumBoard> {
+  constructor(scrumBoardRepository: BaseRepository<ScrumBoard>) {
+    super(scrumBoardRepository);
   }
 }

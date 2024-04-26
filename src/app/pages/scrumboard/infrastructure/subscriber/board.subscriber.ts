@@ -3,7 +3,7 @@ import { merge } from 'rxjs';
 import { bus } from '../../../../shared/domain';
 import { BaseSubscriber } from '../../../../shared/infrastructure';
 import { BoardSavedEvent, BoardRemovedEvent, BoardUpdatedEvent } from '../../../board/domain/board.event';
-import { updateLastActivityScrumBoardUseCase } from '../../application';
+import { updateScrumBoardUseCase } from '../../application';
 import { ScrumBoardStore } from '../store/scrumboard.store';
 
 @Injectable({ providedIn: 'root' })
@@ -18,7 +18,7 @@ export class BoardSubscriber extends BaseSubscriber {
     ).subscribe((event) => {
       const scrumBoard = this.store.findById(event.board.scrumBoardId);
       if (scrumBoard) {
-        updateLastActivityScrumBoardUseCase.execute(scrumBoard);
+        updateScrumBoardUseCase.execute(scrumBoard);
       }
     });
   }

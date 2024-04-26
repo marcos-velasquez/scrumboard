@@ -1,15 +1,10 @@
-import { UseCase } from '../../../../shared/application';
-import { ScrumBoardRepository } from '../../domain/scrumboard.repository';
+import { BaseRepository } from '../../../../shared/domain/repository/base.repository';
+import { RemoveUseCase } from '../../../../shared/application';
 import { ScrumBoard } from '../../domain/scrumboard.model';
 import { ScrumBoardRemovedEvent } from '../../domain/scrumboard.event';
 
-export class RemoveScrumBoardUseCase extends UseCase<ScrumBoard, void> {
-  constructor(private readonly scrumBoardRepository: ScrumBoardRepository) {
-    super();
-  }
-
-  public async execute(scrumBoard: ScrumBoard): Promise<void> {
-    this.scrumBoardRepository.remove(scrumBoard);
-    this.bus.publish(ScrumBoardRemovedEvent.name, new ScrumBoardRemovedEvent(scrumBoard));
+export class RemoveScrumBoardUseCase extends RemoveUseCase<ScrumBoard> {
+  constructor(scrumBoardRepository: BaseRepository<ScrumBoard>) {
+    super(scrumBoardRepository, ScrumBoardRemovedEvent);
   }
 }

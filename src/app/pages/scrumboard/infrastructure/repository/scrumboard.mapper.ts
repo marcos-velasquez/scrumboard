@@ -1,3 +1,4 @@
+import { BaseMapper } from '../../../../shared/infrastructure/repository/base.mapper';
 import { ScrumBoard } from '../../domain/scrumboard.model';
 
 export interface ScrumBoardData {
@@ -8,12 +9,12 @@ export interface ScrumBoardData {
   lastActivity: Date | string;
 }
 
-export class ScrumBoardMapper {
-  public static fromDomain(scrumBoard: ScrumBoard): ScrumBoardData {
+export class ScrumBoardMapper implements BaseMapper<ScrumBoard, ScrumBoardData> {
+  public fromDomain(scrumBoard: ScrumBoard): ScrumBoardData {
     return scrumBoard.values();
   }
 
-  public static toDomain(scrumBoard: ScrumBoardData): ScrumBoard {
+  public toDomain(scrumBoard: ScrumBoardData): ScrumBoard {
     return ScrumBoard.build(
       scrumBoard.id,
       scrumBoard.title,

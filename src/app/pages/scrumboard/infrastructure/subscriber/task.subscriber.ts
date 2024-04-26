@@ -4,7 +4,7 @@ import { bus } from '../../../../shared/domain';
 import { BaseSubscriber } from '../../../../shared/infrastructure';
 import { BoardStore } from '../../../board/infrastructure/store/board.store';
 import { TaskSavedEvent, TaskRemovedEvent, TaskUpdatedEvent } from '../../../../modules/task/domain/task.event';
-import { updateLastActivityScrumBoardUseCase } from '../../application';
+import { updateScrumBoardUseCase } from '../../application';
 import { ScrumBoardStore } from '../store/scrumboard.store';
 
 @Injectable({ providedIn: 'root' })
@@ -21,7 +21,7 @@ export class TaskSubscriber extends BaseSubscriber {
       const scrumBoardId = this.boardStore.findById(event.task.boardId)?.scrumBoardId;
       if (scrumBoardId) {
         const scrumBoard = this.store.findById(scrumBoardId);
-        scrumBoard && updateLastActivityScrumBoardUseCase.execute(scrumBoard);
+        scrumBoard && updateScrumBoardUseCase.execute(scrumBoard);
       }
     });
   }

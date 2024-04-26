@@ -1,8 +1,8 @@
 import { ScrumBoard } from '../../domain/scrumboard.model';
-import { UpdateLastActivityScrumBoardUseCase } from './update-last-activity-scrumboard.usecase';
+import { UpdateScrumBoardUseCase } from './update-scrumboard.usecase';
 
-describe('UpdateLastActivityScrumBoardUseCase', () => {
-  let updateLastActivityScrumBoardUsecase: UpdateLastActivityScrumBoardUseCase;
+describe('UpdateScrumBoardUseCase', () => {
+  let updateScrumBoardUsecase: UpdateScrumBoardUseCase;
   const repository = {
     save: jest.fn(),
     remove: jest.fn(),
@@ -11,12 +11,12 @@ describe('UpdateLastActivityScrumBoardUseCase', () => {
   };
 
   beforeEach(() => {
-    updateLastActivityScrumBoardUsecase = new UpdateLastActivityScrumBoardUseCase(repository);
+    updateScrumBoardUsecase = new UpdateScrumBoardUseCase(repository);
   });
 
   it('should update scrumboard', async () => {
     const board = ScrumBoard.create('title', 'description', 'lucideHome');
-    await updateLastActivityScrumBoardUsecase.execute(board);
+    await updateScrumBoardUsecase.execute(board);
     expect(repository.update).toHaveBeenCalledWith(board);
   });
 
@@ -24,7 +24,7 @@ describe('UpdateLastActivityScrumBoardUseCase', () => {
     const board = ScrumBoard.create('title', 'description', 'lucideHome');
     const firstLastActivity = board.lastActivity;
     await new Promise((resolve) => setTimeout(resolve));
-    await updateLastActivityScrumBoardUsecase.execute(board);
+    await updateScrumBoardUsecase.execute(board);
     const secondLastActivity = board.lastActivity;
     expect(firstLastActivity).not.toEqual(secondLastActivity);
   });

@@ -45,13 +45,12 @@ export class ScrumBoardCreatorComponent {
   public readonly form = this.fb.nonNullable.group({
     title: ['', [Validators.required, Validators.minLength(3)]],
     description: ['', [Validators.required, Validators.minLength(3)]],
-    icon: ['lucideHome', [Validators.required]],
+    icon: [this.icons[0], [Validators.required]],
   });
 
   constructor(private readonly fb: FormBuilder) {}
 
   public save() {
-    const input = this.form.value;
-    saveScrumBoardUseCase.execute(input as SaveScrumBoardInput);
+    saveScrumBoardUseCase.execute(this.form.value as SaveScrumBoardInput);
   }
 }
