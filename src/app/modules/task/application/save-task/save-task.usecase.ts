@@ -1,17 +1,15 @@
-import { UseCase } from '../../../../shared/application';
+import { BaseRepository } from '../../../../shared/domain/repository/base.repository';
+import { SaveUseCase } from '../../../../shared/application';
 import { TaskSavedEvent } from '../../domain/task.event';
 import { Task } from '../../domain/task.model';
-import { TaskRepository } from '../../domain/task.repository';
 import { SaveTaskInput } from './save-task.input';
 
-export class SaveTaskUseCase extends UseCase<SaveTaskInput, void> {
-  constructor(private readonly taskRepository: TaskRepository) {
-    super();
+export class SaveTaskUseCase extends SaveUseCase<SaveTaskInput, Task> {
+  constructor(taskRepository: BaseRepository<Task>) {
+    super(taskRepository, TaskSavedEvent);
   }
 
-  async execute(input: SaveTaskInput): Promise<void> {
-    const task = Task.create(input.boardId, input.title);
-    await this.taskRepository.save(task);
-    this.bus.publish(TaskSavedEvent.name, new TaskSavedEvent(task));
+  protected create(input: SaveTaskInput): Task {
+    return Task.create(input.boardId, input.title);
   }
 }

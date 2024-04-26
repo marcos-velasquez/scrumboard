@@ -16,5 +16,5 @@ export abstract class SaveUseCase<T, K> extends UseCase<T, void> {
     this.bus.publish(this.SavedEvent.name, new this.SavedEvent(aggregate));
   }
 
-  public abstract create(input: T): K;
+  protected abstract create(input: T): K;
 }

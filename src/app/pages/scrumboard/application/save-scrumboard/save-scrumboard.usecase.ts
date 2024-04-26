@@ -9,7 +9,7 @@ export class SaveScrumBoardUseCase extends SaveUseCase<SaveScrumBoardInput, Scru
     super(scrumBoardRepository, ScrumBoardSavedEvent);
   }
 
-  public create(input: SaveScrumBoardInput): ScrumBoard {
+  protected create(input: SaveScrumBoardInput): ScrumBoard {
     return ScrumBoard.create(input.title, input.description, input.icon);
   }
 }

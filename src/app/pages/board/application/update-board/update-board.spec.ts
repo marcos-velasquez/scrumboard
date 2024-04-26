@@ -1,19 +1,17 @@
 import { UUID } from '../../../../shared/domain';
 import { Board } from '../../domain/board.model';
 import { UpdateBoardUseCase } from './update-board.usecase';
-import { BoardRepository } from '../../domain/board.repository';
 
 describe('updateBoardUseCase', () => {
   let updateBoardUseCase: UpdateBoardUseCase;
-  let repository: BoardRepository;
+  const repository = {
+    save: jest.fn(),
+    remove: jest.fn(),
+    getAll: jest.fn(),
+    update: jest.fn(),
+  };
 
   beforeEach(() => {
-    repository = {
-      save: jest.fn(),
-      remove: jest.fn(),
-      getAll: jest.fn(),
-      update: jest.fn(),
-    };
     updateBoardUseCase = new UpdateBoardUseCase(repository);
   });
 

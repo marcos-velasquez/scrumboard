@@ -31,6 +31,10 @@ export class Task {
     this._title = title;
   }
 
+  public isBoardIdEqual(boardId: string) {
+    return this._boardId === boardId;
+  }
+
   public isTitleEqual(title: string) {
     return this._title === title;
   }

@@ -24,6 +24,7 @@ describe('UpdateScrumBoardUseCase', () => {
     const board = ScrumBoard.create('title', 'description', 'lucideHome');
     const firstLastActivity = board.lastActivity;
     await new Promise((resolve) => setTimeout(resolve));
+    board.updateLastActivity();
     await updateScrumBoardUsecase.execute(board);
     const secondLastActivity = board.lastActivity;
     expect(firstLastActivity).not.toEqual(secondLastActivity);

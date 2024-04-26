@@ -1,10 +1,6 @@
-import { Specification } from '../../../shared/domain';
+import { BaseRepository } from '../../../shared/domain/repository/base.repository';
 import { Task } from './task.model';
 
-export interface TaskRepository {
-  getAll(specification: Specification<Task>): Promise<Task[]>;
-  save(task: Task): Promise<void>;
-  update(task: Task): Promise<void>;
-  remove(task: Task): Promise<void>;
+export interface TaskRepository extends BaseRepository<Task> {
   set(boardId: string, tasks: Task[]): Promise<void>;
 }

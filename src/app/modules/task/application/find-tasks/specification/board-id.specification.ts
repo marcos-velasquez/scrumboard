@@ -7,6 +7,6 @@ export class BoardIdSpecification extends Specification<Task> {
   }
 
   public isSatisfiedBy(task: Task): boolean {
-    return task.boardId === this.boardId;
+    return task.isBoardIdEqual(this.boardId);
   }
 }

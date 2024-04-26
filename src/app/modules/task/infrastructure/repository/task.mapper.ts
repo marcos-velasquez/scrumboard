@@ -1,3 +1,4 @@
+import { BaseMapper } from '../../../../shared/infrastructure/repository/base.mapper';
 import { Task } from '../../domain/task.model';
 
 export interface TaskData {
@@ -6,12 +7,12 @@ export interface TaskData {
   title: string;
 }
 
-export class TaskMapper {
-  public static fromDomain(task: Task): TaskData {
+export class TaskMapper implements BaseMapper<Task, TaskData> {
+  public fromDomain(task: Task): TaskData {
     return task.values();
   }
 
-  public static toDomain(task: TaskData): Task {
+  public toDomain(task: TaskData): Task {
     return Task.build(task.id, task.boardId, task.title);
   }
 }

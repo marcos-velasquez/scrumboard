@@ -9,7 +9,7 @@ export class SaveBoardUseCase extends SaveUseCase<SaveBoardInput, Board> {
     super(boardRepository, BoardSavedEvent);
   }
 
-  public create(input: SaveBoardInput): Board {
+  protected create(input: SaveBoardInput): Board {
     return Board.create(input.scrumBoardId, input.title);
   }
 }
