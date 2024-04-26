@@ -13,6 +13,9 @@ export const BoardStore = signalStore(
   { providedIn: 'root' },
   withState(initialState),
   withMethods((store) => ({
+    findById(id: string) {
+      return store.boards().find((board) => board.isEqual(id));
+    },
     set(boards: Board[]) {
       patchState(store, () => ({ boards }));
     },

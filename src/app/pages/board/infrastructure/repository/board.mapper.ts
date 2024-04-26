@@ -1,3 +1,4 @@
+import { BaseMapper } from '../../../../shared/infrastructure/repository/base.mapper';
 import { Board } from '../../domain/board.model';
 
 export interface BoardData {
@@ -7,12 +8,12 @@ export interface BoardData {
   tasksCount: number;
 }
 
-export class BoardMapper {
-  public static fromDomain(board: Board): BoardData {
+export class BoardMapper implements BaseMapper<Board, BoardData> {
+  public fromDomain(board: Board): BoardData {
     return board.values();
   }
 
-  public static toDomain(board: BoardData): Board {
+  public toDomain(board: BoardData): Board {
     return Board.build(board.id, board.scrumBoardId, board.title, board.tasksCount);
   }
 }

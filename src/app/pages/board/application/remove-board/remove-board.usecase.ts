@@ -1,15 +1,10 @@
-import { UseCase } from '../../../../shared/application';
+import { BaseRepository } from '../../../../shared/domain/repository/base.repository';
+import { RemoveUseCase } from '../../../../shared/application';
 import { BoardRemovedEvent } from '../../domain/board.event';
 import { Board } from '../../domain/board.model';
-import { BoardRepository } from '../../domain/board.repository';
 
-export class RemoveBoardUseCase extends UseCase<Board, void> {
-  constructor(private readonly boardRepository: BoardRepository) {
-    super();
-  }
-
-  async execute(board: Board): Promise<void> {
-    await this.boardRepository.remove(board);
-    this.bus.publish(BoardRemovedEvent.name, new BoardRemovedEvent(board));
+export class RemoveBoardUseCase extends RemoveUseCase<Board> {
+  constructor(boardRepository: BaseRepository<Board>) {
+    super(boardRepository, BoardRemovedEvent);
   }
 }

@@ -2,7 +2,7 @@ import { Injectable, inject } from '@angular/core';
 import { bus } from '../../../../shared/domain';
 import { BaseSubscriber } from '../../../../shared/infrastructure';
 import { TaskStore } from './task.store';
-import { TaskRemovedEvent, TaskSavedEvent, TasksSetEvent, TaskUpdatedEvent } from '../../domain/task.event';
+import { TaskRemovedEvent, TaskSavedEvent, TasksSetEvent } from '../../domain/task.event';
 
 @Injectable({ providedIn: 'root' })
 export class TaskStoreSubscriber extends BaseSubscriber {

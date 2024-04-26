@@ -7,7 +7,7 @@ import { BrnMenuTriggerDirective } from '@spartan-ng/ui-menu-brain';
 import { HlmMenuComponent, HlmMenuItemDirective, HlmMenuItemIconDirective } from '@spartan-ng/ui-menu-helm';
 import { TaskListComponent } from '../../../../../modules/task/presenter/task-list.component';
 import { Board } from '../../../domain/board.model';
-import { removeBoardUseCase, renameBoardUseCase } from '../../../application';
+import { removeBoardUseCase, updateBoardUseCase } from '../../../application';
 
 @Component({
   selector: 'app-board',
@@ -35,6 +35,7 @@ export class BoardComponent {
   }
 
   public renameListTitle(title: string) {
-    renameBoardUseCase.execute({ board: this.board(), title });
+    this.board().rename(title);
+    updateBoardUseCase.execute(this.board());
   }
 }

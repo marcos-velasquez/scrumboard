@@ -1,16 +1,15 @@
-import { UseCase } from '../../../../shared/application';
-import { BoardRepository } from '../../domain/board.repository';
+import { BaseRepository } from '../../../../shared/domain/repository/base.repository';
+import { SaveUseCase } from '../../../../shared/application';
 import { Board } from '../../domain/board.model';
 import { BoardSavedEvent } from '../../domain/board.event';
 import { SaveBoardInput } from './save-board.input';
-export class SaveBoardUseCase extends UseCase<SaveBoardInput, void> {
-  constructor(private readonly boardRepository: BoardRepository) {
-    super();
+
+export class SaveBoardUseCase extends SaveUseCase<SaveBoardInput, Board> {
+  constructor(boardRepository: BaseRepository<Board>) {
+    super(boardRepository, BoardSavedEvent);
   }
 
-  async execute(input: SaveBoardInput): Promise<void> {
-    const board = Board.create(input.scrumBoardId, input.title);
-    await this.boardRepository.save(board);
-    this.bus.publish(BoardSavedEvent.name, new BoardSavedEvent(board));
+  public create(input: SaveBoardInput): Board {
+    return Board.create(input.scrumBoardId, input.title);
   }
 }

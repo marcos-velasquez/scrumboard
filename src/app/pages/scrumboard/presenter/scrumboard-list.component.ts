@@ -4,7 +4,8 @@ import { RouterModule } from '@angular/router';
 import { HlmH1Directive } from '@spartan-ng/ui-typography-helm';
 import { ScrumBoardCreatorComponent } from './components/scrumboard-creator/scrumboard-creator.component';
 import { ScrumBoardComponent } from './components/scrumboard/scrumboard.component';
-import { ScrumBoardStore, ScrumBoardStoreSubscriber } from '../infrastructure/store';
+import { ScrumBoardStore } from '../infrastructure/store/scrumboard.store';
+import { ScrumBoardSubscriber } from '../infrastructure/subscriber/scrumboard.subscriber';
 
 @Component({
   selector: 'app-scrumboard-list',
@@ -17,6 +18,6 @@ export class ScrumBoardListComponent {
   public readonly store = inject(ScrumBoardStore);
 
   constructor() {
-    inject(ScrumBoardStoreSubscriber).init();
+    inject(ScrumBoardSubscriber).init();
   }
 }

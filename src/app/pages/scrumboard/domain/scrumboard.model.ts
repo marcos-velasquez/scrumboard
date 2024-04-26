@@ -42,6 +42,10 @@ export class ScrumBoard {
     return this._lastActivity;
   }
 
+  public isEqual(id: string) {
+    return this.id === id;
+  }
+
   public updateLastActivity() {
     this._lastActivity = new Date();
   }

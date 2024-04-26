@@ -1,25 +1,25 @@
 import { ISpecification } from './specification.interface';
 
 export abstract class Specification<T> implements ISpecification<T> {
-  abstract isSatisfiedBy(candidate: T): boolean;
+  public abstract isSatisfiedBy(candidate: T): boolean;
 
-  and(other: ISpecification<T>): ISpecification<T> {
+  public and(other: ISpecification<T>): ISpecification<T> {
     return new AndSpecification(this, other);
   }
 
-  andNot(other: ISpecification<T>): ISpecification<T> {
+  public andNot(other: ISpecification<T>): ISpecification<T> {
     return new AndNotSpecification(this, other);
   }
 
-  or(other: ISpecification<T>): ISpecification<T> {
+  public or(other: ISpecification<T>): ISpecification<T> {
     return new OrSpecification(this, other);
   }
 
-  orNot(other: ISpecification<T>): ISpecification<T> {
+  public orNot(other: ISpecification<T>): ISpecification<T> {
     return new OrNotSpecification(this, other);
   }
 
-  not(): ISpecification<T> {
+  public not(): ISpecification<T> {
     return new NotSpecification(this);
   }
 }
@@ -78,7 +78,7 @@ export class TrueSpecification<T> extends Specification<T> {
   constructor() {
     super();
   }
-  isSatisfiedBy(_: T): boolean {
+  public isSatisfiedBy(_: T): boolean {
     return true;
   }
 }

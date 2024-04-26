@@ -5,12 +5,14 @@
     "clsx",
     "devkit",
     "esnext",
+    "localstorage",
     "lucide",
     "matx",
     "scrumboard",
     "scrumboards",
     "tailwindcss",
-    "usecase"
+    "usecase",
+    "uuidv"
   ],
   "angular-schematics.schematicsDefaultOptions": {
     "angular-*": {

@@ -7,6 +7,6 @@ export class ScrumBoardIdSpecification extends Specification<Board> {
   }
 
   public isSatisfiedBy(board: Board): boolean {
-    return board.scrumBoardId === this.scrumBoardId;
+    return board.isScrumBoardIdEqual(this.scrumBoardId);
   }
 }

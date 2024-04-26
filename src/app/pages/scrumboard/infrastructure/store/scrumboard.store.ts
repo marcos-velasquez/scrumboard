@@ -20,7 +20,7 @@ export const ScrumBoardStore = signalStore(
   }),
   withMethods((store) => ({
     findById(id: string) {
-      return store.scrumBoards().find((scrumBoard) => scrumBoard.id === id);
+      return store.scrumBoards().find((scrumBoard) => scrumBoard.isEqual(id));
     },
     insert(scrumBoard: ScrumBoard) {
       patchState(store, (state) => ({ scrumBoards: [...state.scrumBoards, scrumBoard] }));

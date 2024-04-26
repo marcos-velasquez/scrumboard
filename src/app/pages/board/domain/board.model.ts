@@ -32,6 +32,14 @@ export class Board {
     return this._tasksCount;
   }
 
+  public isScrumBoardIdEqual(scrumBoardId: string) {
+    return this.scrumBoardId === scrumBoardId;
+  }
+
+  public isEqual(id: string) {
+    return this.id === id;
+  }
+
   public isTitleEqual(title: string) {
     return this._title === title;
   }
@@ -40,11 +48,11 @@ export class Board {
     this._title = title;
   }
 
-  public addCard() {
+  public incrementTask() {
     this._tasksCount++;
   }
 
-  public removeCard() {
+  public decrementTask() {
     this._tasksCount--;
   }
 

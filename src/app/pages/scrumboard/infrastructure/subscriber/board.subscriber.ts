@@ -2,12 +2,12 @@ import { Injectable, inject } from '@angular/core';
 import { merge } from 'rxjs';
 import { bus } from '../../../../shared/domain';
 import { BaseSubscriber } from '../../../../shared/infrastructure';
-import { ScrumBoardStore } from './scrumboard.store';
-import { BoardSavedEvent, BoardRemovedEvent, BoardUpdatedEvent } from '../../../../pages/board/domain/board.event';
+import { BoardSavedEvent, BoardRemovedEvent, BoardUpdatedEvent } from '../../../board/domain/board.event';
 import { updateLastActivityScrumBoardUseCase } from '../../application';
+import { ScrumBoardStore } from '../store/scrumboard.store';
 
 @Injectable({ providedIn: 'root' })
-export class BoardStoreSubscriber extends BaseSubscriber {
+export class BoardSubscriber extends BaseSubscriber {
   private readonly store = inject(ScrumBoardStore);
 
   protected initSubscriber() {

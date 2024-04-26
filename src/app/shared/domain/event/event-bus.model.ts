@@ -2,22 +2,22 @@ import { ReplaySubject } from 'rxjs';
 import { DomainEvent } from './domain.event';
 
 class EventBus {
-  private readonly _events = new Map<string, ReplaySubject<DomainEvent>>();
+  private readonly events = new Map<string, ReplaySubject<DomainEvent>>();
 
   public publish(key: string, event: DomainEvent) {
     this.createIfNotExists(key);
-    this._events.get(key)?.next(event);
+    this.events.get(key)?.next(event);
   }
 
   private createIfNotExists(key: string) {
-    if (!this._events.has(key)) {
-      this._events.set(key, new ReplaySubject());
+    if (!this.events.has(key)) {
+      this.events.set(key, new ReplaySubject());
     }
   }
 
   public on(key: string) {
     this.createIfNotExists(key);
-    return this._events.get(key);
+    return this.events.get(key);
   }
 }
 
