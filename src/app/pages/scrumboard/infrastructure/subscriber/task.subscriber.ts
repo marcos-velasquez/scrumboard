@@ -3,7 +3,12 @@ import { merge } from 'rxjs';
 import { bus } from '../../../../shared/domain';
 import { BaseSubscriber } from '../../../../shared/infrastructure';
 import { BoardStore } from '../../../board/infrastructure/store/board.store';
-import { TaskSavedEvent, TaskRemovedEvent, TaskUpdatedEvent } from '../../../../modules/task/domain/task.event';
+import {
+  TaskSavedEvent,
+  TaskRemovedEvent,
+  TaskUpdatedEvent,
+  TasksSetEvent,
+} from '../../../../modules/task/domain/task.event';
 import { updateScrumBoardUseCase } from '../../application';
 import { ScrumBoardStore } from '../store/scrumboard.store';
 
@@ -17,12 +22,17 @@ export class TaskSubscriber extends BaseSubscriber {
       bus.on<TaskSavedEvent>(TaskSavedEvent.name),
       bus.on<TaskRemovedEvent>(TaskRemovedEvent.name),
       bus.on<TaskUpdatedEvent>(TaskUpdatedEvent.name)
-    ).subscribe((event) => {
-      const scrumBoardId = this.boardStore.findById(event.task.boardId)?.scrumBoardId;
-      if (scrumBoardId) {
-        const scrumBoard = this.store.findById(scrumBoardId);
-        scrumBoard && updateScrumBoardUseCase.execute(scrumBoard);
-      }
-    });
+    ).subscribe((event) => this.updateScrumBoard(event.task.boardId));
+    bus.on<TasksSetEvent>(TasksSetEvent.name).subscribe((event) => this.updateScrumBoard(event.boardId));
+  }
+
+  private updateScrumBoard(boardId: string) {
+    const scrumBoardId = this.boardStore.findById(boardId)?.scrumBoardId;
+    if (scrumBoardId) {
+      const scrumBoard = this.store.findById(scrumBoardId);
+      if (!scrumBoard) return;
+      scrumBoard.updateLastActivity();
+      updateScrumBoardUseCase.execute(scrumBoard);
+    }
   }
 }

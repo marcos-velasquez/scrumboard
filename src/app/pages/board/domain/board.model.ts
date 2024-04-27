@@ -48,6 +48,10 @@ export class Board {
     this._title = title;
   }
 
+  public setTasksCount(tasksCount: number) {
+    this._tasksCount = tasksCount;
+  }
+
   public incrementTask() {
     this._tasksCount++;
   }

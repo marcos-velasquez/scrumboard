@@ -17,10 +17,9 @@ export class BoardSubscriber extends BaseSubscriber {
       bus.on<BoardUpdatedEvent>(BoardUpdatedEvent.name)
     ).subscribe((event) => {
       const scrumBoard = this.store.findById(event.board.scrumBoardId);
-      if (scrumBoard) {
-        scrumBoard.updateLastActivity();
-        updateScrumBoardUseCase.execute(scrumBoard);
-      }
+      if (!scrumBoard) return;
+      scrumBoard.updateLastActivity();
+      updateScrumBoardUseCase.execute(scrumBoard);
     });
   }
 }
