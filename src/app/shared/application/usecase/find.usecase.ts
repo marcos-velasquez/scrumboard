@@ -7,7 +7,7 @@ export abstract class FindUseCase<T> extends UseCase<Specification<T>, T[]> {
     super();
   }
 
-  public async execute(criteria: Specification<T> = new TrueSpecification()): Promise<T[]> {
-    return this.repository.getAll(criteria);
+  public async execute(specification: Specification<T> = new TrueSpecification()): Promise<T[]> {
+    return this.repository.getAll(specification);
   }
 }

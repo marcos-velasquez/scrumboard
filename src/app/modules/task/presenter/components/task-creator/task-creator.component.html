@@ -22,7 +22,7 @@
           [autocomplete]="'off'"
           [formControlName]="'title'"
           [placeholder]="'Enter task title...'"
-          (keydown.enter)="save()"
+          (keydown.enter)="save(); $event.preventDefault()"
           (keydown.esc)="toggleFormVisibility()"
         ></textarea>
       </div>

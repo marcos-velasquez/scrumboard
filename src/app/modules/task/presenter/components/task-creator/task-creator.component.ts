@@ -13,7 +13,7 @@ import { saveTaskUseCase } from '../../../application';
   templateUrl: './task-creator.component.html',
 })
 export class TaskCreatorComponent {
-  @ViewChild('titleInput') titleInput!: ElementRef<HTMLInputElement>;
+  @ViewChild('titleInput') titleInput!: ElementRef<HTMLTextAreaElement>;
   public readonly boardId = input.required<string>();
   public readonly form = this.fb.group({ title: [''] });
   public readonly formVisible = signal(false);
@@ -25,6 +25,7 @@ export class TaskCreatorComponent {
     if (!title || title.trim() === '') return;
     saveTaskUseCase.execute({ boardId: this.boardId(), title });
     this.form.reset();
+    this.titleInput;
     this.formVisible.set(false);
     this._changeDetectorRef.markForCheck();
   }
