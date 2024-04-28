@@ -30,7 +30,7 @@ export const ScrumBoardStore = signalStore(
     },
     update(scrumBoard: ScrumBoard) {
       patchState(store, (state) => ({
-        scrumBoards: state.scrumBoards.map((b) => (b.id === scrumBoard.id ? scrumBoard : b)),
+        scrumBoards: state.scrumBoards.map((b) => (b.isEqual(scrumBoard.id) ? scrumBoard : b)),
       }));
     },
   }))

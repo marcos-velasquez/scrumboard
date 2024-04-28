@@ -14,7 +14,7 @@ export const TaskStore = signalStore(
   withState(initialState),
   withMethods((store) => ({
     get(boardId: string) {
-      return store.tasks().filter((task) => task.boardId === boardId) || [];
+      return store.tasks().filter((task) => task.isBoardIdEqual(boardId)) || [];
     },
     push(tasks: Task[]) {
       patchState(store, { tasks: [...store.tasks(), ...tasks] });
