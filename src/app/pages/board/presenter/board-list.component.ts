@@ -8,7 +8,7 @@ import { HlmIconModule } from '@spartan-ng/ui-icon-helm';
 import { BoardCreatorComponent } from './components/board-creator/board-creator.component';
 import { BoardComponent } from './components/board/board.component';
 import { findBoardsUseCase } from '../application';
-import { ScrumBoardIdSpecification } from '../application/find-boards/specification';
+import { ScrumBoardIdSpecification } from '../application/find/specification';
 import { ScrumBoardStore } from '../../scrumboard/infrastructure/store/scrumboard.store';
 import { BoardStore } from '../infrastructure/store/board.store';
 import { BoardStoreSubscriber } from '../infrastructure/subscriber/board.subscriber';

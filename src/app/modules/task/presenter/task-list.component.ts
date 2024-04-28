@@ -5,7 +5,7 @@ import { TaskCreatorComponent } from './components/task-creator/task-creator.com
 import { TaskStore } from '../infrastructure/store/task.store';
 import { TaskStoreSubscriber } from '../infrastructure/subscriber/task.subscriber';
 import { setTasksUseCase, findTasksUseCase } from '../application';
-import { BoardIdSpecification } from '../application/find-tasks/specification';
+import { BoardIdSpecification } from '../application/find/specification';
 import { TaskComponent } from './components/task/task.component';
 import { Task } from '../domain/task.model';
 

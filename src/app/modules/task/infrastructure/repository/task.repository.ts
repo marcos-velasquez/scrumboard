@@ -1,5 +1,5 @@
 import { LocalStorageRepository } from '../../../../shared/infrastructure';
-import { BoardIdSpecification } from '../../application/find-tasks/specification';
+import { BoardIdSpecification } from '../../application/find/specification';
 import { Task } from '../../domain/task.model';
 import { TaskData, TaskMapper } from './task.mapper';
 

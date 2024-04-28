@@ -1,8 +1,8 @@
 import { TaskLocalStorageRepository } from '../infrastructure/repository/task.repository';
-import { SetTasksUseCase } from './set-tasks/set-tasks.usecase';
-import { FindTasksUseCase } from './find-tasks/find-tasks.usecase';
-import { RemoveTaskUseCase } from './remove-task/remove-task.usecase';
-import { SaveTaskUseCase } from './save-task/save-task.usecase';
+import { SetTasksUseCase } from './set/set-tasks.usecase';
+import { FindTasksUseCase } from './find/find-tasks.usecase';
+import { RemoveTaskUseCase } from './remove/remove-task.usecase';
+import { SaveTaskUseCase } from './save/save-task.usecase';
 
 const taskRepository = new TaskLocalStorageRepository();
 
